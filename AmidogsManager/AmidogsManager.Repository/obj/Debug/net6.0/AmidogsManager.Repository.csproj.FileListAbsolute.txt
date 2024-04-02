@@ -1,0 +1,15 @@
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\bin\Debug\net6.0\AmidogsManager.Repository.deps.json
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\bin\Debug\net6.0\AmidogsManager.Repository.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\bin\Debug\net6.0\AmidogsManager.Repository.pdb
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\bin\Debug\net6.0\AmidogsManager.Database.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\bin\Debug\net6.0\AmidogsManager.Database.pdb
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\AmidogsManager.Repository.csproj.AssemblyReference.cache
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\AmidogsManager.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\AmidogsManager.Repository.AssemblyInfoInputs.cache
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\AmidogsManager.Repository.AssemblyInfo.cs
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\AmidogsManager.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\AmidogsManager.Repository.csproj.CopyComplete
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\AmidogsManager.Repository.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\refint\AmidogsManager.Repository.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\AmidogsManager.Repository.pdb
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Debug\net6.0\ref\AmidogsManager.Repository.dll
