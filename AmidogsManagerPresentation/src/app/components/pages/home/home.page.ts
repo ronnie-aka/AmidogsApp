@@ -17,12 +17,21 @@ export class HomePage {
     this.dogService.getDogs().subscribe({
       next: (data) => {
         this.dogs = data;
-        console.log(this.dogs);
       },
       error: (error) => {
         this.error = error;
       }
     });
+  }
+
+  onCloseClick(dog: any): void {
+    console.log('Close icon clicked for dog:', dog);
+    // Aquí puedes poner la lógica que quieras que ocurra cuando se haga clic en el icono de cerrar
+  }
+
+  onPawClick(dog: any): void {
+    console.log('Paw icon clicked for dog:', dog);
+    // Aquí puedes poner la lógica que quieras que ocurra cuando se haga clic en el icono de la pata
   }
 
 }

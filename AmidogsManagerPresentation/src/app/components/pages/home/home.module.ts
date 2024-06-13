@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { CardsPageModule } from '../../partials/cards/cards.module';
+import { CardComponent } from '../../partials/card/card.component';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { CardsPageModule } from '../../partials/cards/cards.module';
     CommonModule,
     FormsModule,
     HomePageRoutingModule,
-    CardsPageModule,
+    CardComponent
   ],
   declarations: [HomePage],
 })

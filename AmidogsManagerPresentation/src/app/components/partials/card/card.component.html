@@ -1,0 +1,17 @@
+<ion-card>
+  <ion-card-header>
+    <img [src]="'../../../../assets/images/' + photoUrl + '.svg'" class="image">
+  </ion-card-header>
+  <ion-card-content>
+    <ion-card-title>
+      <button class="icon-button" (click)="closeClick()">
+        <img src="/assets/icon/siguiente.svg" class="icon close-icon">
+      </button>
+      {{name}}
+      <button class="icon-button" (click)="pawClick()">
+        <img src="/assets/icon/pata.svg" class="icon paw-icon">
+      </button>
+    </ion-card-title>
+  </ion-card-content>
+</ion-card>
+ 
