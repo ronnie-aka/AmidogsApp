@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Denunciar usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="report-container">
+    <ion-icon name="alert-circle-outline" class="icon"></ion-icon>
+    <p class="info-text">
+      Tu colaboración es esencial para mantener nuestra comunidad segura y amigable.
+    </p>
+    <p class="info-text">
+      Si observas a alguien haciendo un mal uso de la aplicación, por favor, repórtalo.
+    </p>
+    <p class="info-text">
+      Te pedimos que realices las denuncias de forma justa y responsable, ya que esto nos ayudará a tomar las medidas necesarias para asegurar que todos los usuarios utilicen la aplicación de manera adecuada y respetuosa.
+    </p>
+    <p class="info-text">
+      ¡Gracias por ayudarnos a mantener un espacio seguro para todos!
+    </p>
+    <ion-textarea placeholder="Escribe tu explicación aquí" rows="2" [(ngModel)]="reportText"></ion-textarea>
+    <ion-button expand="block" color="danger" (click)="submitReport()">Denunciar</ion-button>
+  </div>
+</ion-content>

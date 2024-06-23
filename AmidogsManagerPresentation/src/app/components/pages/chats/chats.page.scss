@@ -1,0 +1,22 @@
+.horizontal-slider {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+  }
+
+app-slider {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+
+.superior-title {
+  color: #ffffff;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.inferior-title {
+  color: #ffffff;
+  padding-bottom: 20px;
+  font-size: 20px;
+}

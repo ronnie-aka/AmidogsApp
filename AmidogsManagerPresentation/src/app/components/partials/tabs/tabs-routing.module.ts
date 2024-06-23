@@ -13,14 +13,14 @@ const routes: Routes = [
       },
       {
         path: 'meetings',
-        loadChildren: () => import('../../pages/meetings/meetings.module').then(m => m.meetingsPageModule)
+        loadChildren: () => import('../../pages/report/report.module').then(m => m.ReportPageModule)
       },
       {
         path: 'chats',
         loadChildren: () => import('../../pages/chats/chats.module').then(m => m.chatsPageModule)
       },
       {
-        path: 'profile',
+        path: 'profile/:id',
         loadChildren: () => import('../../pages/profile/profile.module').then(m => m.ProfilePageModule)
       },
       {

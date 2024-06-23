@@ -1,7 +1,7 @@
 <ion-card>
-  <ion-card-header>
+  <div (click)="onCardClick()" class="image-container">
     <img [src]="'../../../../assets/images/' + photoUrl + '.svg'" class="image">
-  </ion-card-header>
+  </div>
   <ion-card-content>
     <ion-card-title>
       <button class="icon-button" (click)="closeClick()">
@@ -14,4 +14,3 @@
     </ion-card-title>
   </ion-card-content>
 </ion-card>
- 

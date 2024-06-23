@@ -5,14 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { chatsPage } from './chats.page';
 
 import { chatsPageRoutingModule } from './chats-routing.module';
+import { SliderComponent } from "../../partials/slider/slider.component";
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    chatsPageRoutingModule
-  ],
-  declarations: [chatsPage]
+    declarations: [chatsPage],
+    imports: [
+        IonicModule,
+        CommonModule,
+        FormsModule,
+        chatsPageRoutingModule,
+        SliderComponent
+    ]
 })
 export class chatsPageModule {}

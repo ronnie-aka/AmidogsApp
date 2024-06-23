@@ -16,6 +16,11 @@ export class CardComponent {
 
   @Output() close = new EventEmitter<void>();
   @Output() paw = new EventEmitter<void>();
+  @Output() cardClick = new EventEmitter<void>();
+
+  onCardClick() {
+    this.cardClick.emit();
+  }
 
   closeClick() {
     this.close.emit();

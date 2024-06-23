@@ -13,4 +13,10 @@ export class DogService {
   getDogs(): Observable<any> {
     return this.http.get(`${this.apiUrl}/dogsNoMatch`);
   }
+
+  getDogById(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/dogsNoMatch/${id}`);
+  }
+
+  
 }

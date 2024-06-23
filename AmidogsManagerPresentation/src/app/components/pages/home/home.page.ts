@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {DogService } from 'src/app/services/api/dog.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class HomePage {
   dogs: any[] = [];
   error: any = null;
 
-  constructor(private dogService: DogService) {}
+  constructor(private dogService: DogService, private router: Router) {}
 
   ngOnInit(): void {
     this.dogService.getDogs().subscribe({
@@ -24,6 +25,10 @@ export class HomePage {
     });
   }
 
+  onCardClick(dog : any) {
+    this.router.navigate(['/tabs/profile', dog.id]); // asumiendo que cada perro tiene un id único
+  }
+  
   onCloseClick(dog: any): void {
     console.log('Close icon clicked for dog:', dog);
     // Aquí puedes poner la lógica que quieras que ocurra cuando se haga clic en el icono de cerrar
