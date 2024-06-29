@@ -26,7 +26,7 @@ export class HomePage {
   }
 
   onCardClick(dog : any) {
-    this.router.navigate(['/tabs/profile', dog.id]); // asumiendo que cada perro tiene un id único
+    this.router.navigate(['/tabs/dog-profile', dog.id]);; // asumiendo que cada perro tiene un id único
   }
   
   onCloseClick(dog: any): void {

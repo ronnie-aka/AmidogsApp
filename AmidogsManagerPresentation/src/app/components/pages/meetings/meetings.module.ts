@@ -5,14 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { meetingsPage } from './meetings.page';
 
 import { meetingsPageRoutingModule } from './meetings-routing.module';
+import { SliderComponent } from "../../partials/slider/slider.component";
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    meetingsPageRoutingModule
-  ],
-  declarations: [meetingsPage]
+    declarations: [meetingsPage],
+    imports: [
+        IonicModule,
+        CommonModule,
+        FormsModule,
+        meetingsPageRoutingModule,
+        SliderComponent
+    ]
 })
 export class meetingsPageModule {}

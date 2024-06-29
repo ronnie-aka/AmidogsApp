@@ -11,6 +11,7 @@ export class ProfilePage implements OnInit {
 
   dog: any;
   error: any = null;
+  isEditable: boolean = false;
 
   constructor(private dogService:DogService, private route: ActivatedRoute) { }
 
@@ -32,7 +33,9 @@ export class ProfilePage implements OnInit {
     }
   }
 
-
+  toggleEditable() {
+    this.isEditable = !this.isEditable;
+  }
 
 
 }

@@ -1,16 +1,115 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Meetings
-    </ion-title>
+    <ion-title>amidogs</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Meetings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="button-container">
+    <ion-button
+      [color]="currentTab === 'unete' ? 'danger' : 'light'"
+      (click)="toggleTab('unete')"
+      expand="block"
+      shape="round"
+    >Únete</ion-button>
+    <ion-button
+      [color]="currentTab === 'misQuedadas' ? 'danger' : 'light'"
+      (click)="toggleTab('misQuedadas')"
+      expand="block"
+      shape="round"
+    >Mis quedadas</ion-button>
+    <ion-button
+    [color]="currentTab === 'crearQuedada' ? 'danger' : 'light'"
+    (click)="toggleTab('crearQuedada')"
+    expand="block"
+    shape="round"
+  >Crear quedada</ion-button>
+  </div>
 
+  <div *ngIf="currentTab === 'unete' || currentTab === ''">
+    <h1>¡Apúntate a una quedada!</h1>
+    <div *ngFor="let meeting of meetings" class="tarjetas">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ meeting.titulo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Fecha: {{ meeting.fecha | date: 'shortDate' }}</p>
+          <p>Hora: {{ meeting.hora | date: 'shortTime' }}</p>
+          <p>Sitio: {{ meeting.sitio }}</p>
+          <p>Descripción: {{ meeting.descripcion }}</p>
+          <p>Huecos libres: {{ meeting.huecosLibres }}</p>
+          <div class="horizontal-slider">
+            <div class="slider-item" *ngFor="let dog of meeting.perros">
+              <app-slider
+                [name]="dog.nombre"
+                [photoUrl]="dog.foto"
+                (dogClick)="onDogClick(dog)"
+              ></app-slider>
+            </div>
+          </div>
+          <ion-button expand="full" color="danger" shape="round">Unirse</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <div *ngIf="currentTab === 'misQuedadas' || currentTab === ''">
+    <h1>Participando en ellas</h1>
+    <div *ngFor="let meeting of meetings" class="tarjetas">
+      <ion-card (dogClick)="onMeetingClick(meeting.id)">
+        <ion-card-header>
+          <ion-card-title>{{ meeting.titulo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Fecha: {{ meeting.fecha | date: 'shortDate' }}</p>
+          <p>Hora: {{ meeting.hora | date: 'shortTime' }}</p>
+          <p>Sitio: {{ meeting.sitio }}</p>
+          <p>Descripción: {{ meeting.descripcion }}</p>
+          <p>Huecos libres: {{ meeting.huecosLibres }}</p>
+          <div class="horizontal-slider">
+            <div class="slider-item" *ngFor="let dog of meeting.perros">
+              <app-slider
+                [name]="dog.nombre"
+                [photoUrl]="dog.foto"
+                (dogClick)="onDogClick(dog)"
+              ></app-slider>
+            </div>
+          </div>
+          <ion-button expand="full" color="danger" shape="round">Quitarme</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <div *ngIf="currentTab === 'misQuedadas' || currentTab === ''">
+    <h1>Mi lista de quedadas</h1>
+    <div *ngFor="let meeting of meetings" class="tarjetas">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ meeting.titulo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Fecha: {{ meeting.fecha | date: 'shortDate' }}</p>
+          <p>Hora: {{ meeting.hora | date: 'shortTime' }}</p>
+          <p>Sitio: {{ meeting.sitio }}</p>
+          <p>Descripción: {{ meeting.descripcion }}</p>
+          <p>Huecos libres: {{ meeting.huecosLibres }}</p>
+          <div class="horizontal-slider">
+            <div class="slider-item" *ngFor="let dog of meeting.perros">
+              <app-slider
+                [name]="dog.nombre"
+                [photoUrl]="dog.foto"
+                (dogClick)="onDogClick(dog)"
+              ></app-slider>
+            </div>
+          </div>
+          <div class="dual-buttons">
+            <ion-button expand="block" color="danger" class="dual-button" shape="round">Editar</ion-button>
+            <ion-button expand="block" color="danger" class="dual-button" shape="round">Eliminar</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>

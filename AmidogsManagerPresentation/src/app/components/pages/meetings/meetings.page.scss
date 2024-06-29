@@ -1,0 +1,70 @@
+  h1 {
+    color: white;
+    text-align: center;
+  }
+  
+  ion-card {
+    background-color: #3a3a3a;
+    border-radius: 24px;
+    padding: 5px;
+  }
+  
+  ion-card-title,
+  ion-card-content {
+    color: white;
+  }
+
+  ion-title {
+    text-align: center;
+    color: white;
+  }
+
+  ion-button{
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+    background: var(--ion-background-color);
+  }
+  
+  .button-container ion-button {
+    flex: 1;
+    margin: 0 4px;
+    max-width: 200px; /* Asegura un tamaño máximo para evitar que los botones se extiendan demasiado */
+  }
+  
+  .dual-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+  
+  .dual-button {
+    border-radius: 24px !important;
+    flex: 1;
+    margin: 0 4px;
+  }
+  
+  .horizontal-slider {
+    display: flex;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none; // Ocultar barra de desplazamiento en navegadores basados en WebKit
+    }
+
+    -ms-overflow-style: none;  // Ocultar barra de desplazamiento en Internet Explorer y Edge
+    scrollbar-width: none;  // Ocultar barra de desplazamiento en Firefox
+  }
+  
+  .slider-item {
+    margin-right: 10px;
+  }
+  
+  .tarjetas{
+    padding: 5px;
+  }

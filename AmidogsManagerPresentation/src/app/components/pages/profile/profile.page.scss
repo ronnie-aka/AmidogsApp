@@ -68,3 +68,17 @@ ion-header {
 ion-content {
   --background: #1e1e1e;
 }
+
+
+//Inputs
+
+.editable-input {
+  background-color: #2f2f2f;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+}

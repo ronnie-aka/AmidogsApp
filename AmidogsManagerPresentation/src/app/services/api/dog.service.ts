@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DogService {
   private apiUrl = 'https://665f5ae81e9017dc16f3e2de.mockapi.io/amidogs';
@@ -18,5 +18,11 @@ export class DogService {
     return this.http.get(`${this.apiUrl}/dogsNoMatch/${id}`);
   }
 
-  
+  getMeetings(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/meetings`);
+  }
+
+  getMeetingById(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/meetings/${id}`);
+  }
 }
