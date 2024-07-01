@@ -1,0 +1,158 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Detalle de la quedada</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- Elegimos el estilo según si es editable o no -->
+  <ion-grid
+    [ngClass]="{'form-grid': isEditable, 'form-grid-non-editable': !isEditable}"
+    *ngIf="meeting"
+  >
+    <!-- Nombre de la quedada -->
+    <ion-row>
+      <ion-col size="12" class="editable-form-col">
+        <ion-label *ngIf="isEditable" class="form-label">Nombre</ion-label>
+        <ion-item *ngIf="isEditable" lines="none" class="form-item">
+          <ion-input
+            placeholder="Dog park pack"
+            [(ngModel)]="meeting.titulo"
+            class="form-input"
+          ></ion-input>
+        </ion-item>
+        <div *ngIf="!isEditable">
+          <ion-text
+            class="non-editable-title"
+            style="font-weight: bold; font-size: 25px; color: #f90404"
+            >{{ meeting.titulo }}</ion-text
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Fecha y hora de la quedada -->
+    <ion-row>
+      <ion-col
+        size="12"
+        [ngClass]="{'editable-form-col': isEditable, 'non-editable-form-col': !isEditable}"
+      >
+        <ion-label class="form-label">Fecha y Hora</ion-label>
+        <ion-item *ngIf="isEditable" lines="none" class="form-item">
+          <ion-input
+            readonly
+            [value]="formatDateTime(meeting.fecha, meeting.hora)"
+            (click)="openDateTimePicker()"
+            class="form-input"
+          ></ion-input>
+        </ion-item>
+        <div *ngIf="!isEditable">
+          <ion-text class="non-editable-text"
+            >{{ formatDateTime(meeting.fecha, meeting.hora) }}</ion-text
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Ubicación de la quedada -->
+    <ion-row>
+      <ion-col
+        size="12"
+        [ngClass]="{'editable-form-col': isEditable, 'non-editable-form-col': !isEditable}"
+      >
+        <ion-label class="form-label">Ubicación</ion-label>
+        <ion-item *ngIf="isEditable" lines="none" class="form-item">
+          <ion-input
+            placeholder="Calle / Pueblo / otros datos adicionales"
+            [(ngModel)]="meeting.ubicacion"
+            class="form-input"
+          ></ion-input>
+        </ion-item>
+        <div *ngIf="!isEditable">
+          <ion-text class="non-editable-text">{{ meeting.ubicacion }}</ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Descripción de la quedada -->
+    <ion-row>
+      <ion-col
+        size="12"
+        [ngClass]="{'editable-form-col': isEditable, 'non-editable-form-col': !isEditable}"
+      >
+        <ion-label class="form-label">Descripción</ion-label>
+        <ion-item *ngIf="isEditable" lines="none" class="form-item">
+          <ion-textarea
+            placeholder="Añade una pequeña descripción"
+            [(ngModel)]="meeting.descripcion"
+            class="form-input"
+          ></ion-textarea>
+        </ion-item>
+        <div *ngIf="!isEditable">
+          <ion-text class="non-editable-text"
+            >{{ meeting.descripcion }}</ion-text
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Número de participantes de la quedada -->
+    <ion-row>
+      <ion-col
+        size="12"
+        [ngClass]="{'editable-form-col': isEditable, 'non-editable-form-col': !isEditable}"
+      >
+        <ion-label class="form-label">Número de participantes</ion-label>
+        <ion-item *ngIf="isEditable" lines="none" class="form-item">
+          <ion-input
+            type="text"
+            placeholder= "Recomendamos mínimo 2 perros y máximo 10"
+            [(ngModel)]="meeting.perros.length"
+            class="form-input"
+          ></ion-input>
+        </ion-item>
+        <div *ngIf="!isEditable">
+          <ion-text class="non-editable-text"
+            >{{ meeting.perros.length }}</ion-text
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- Perros que parciparán en la quedada -->
+    <ion-row *ngIf="meeting.perros?.length">
+      <ion-col size="12" class="section">
+        <ion-label class="form-label">Perros que participarán</ion-label>
+        <div class="horizontal-slider">
+          <div class="slider-item" *ngFor="let dog of meeting.perros">
+            <app-slider
+              [name]="dog.nombre"
+              [photoUrl]="dog.foto"
+              (click)="onDogClick(dog, $event)"
+            ></app-slider>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="editButton">
+      <ion-col size="12" class="form-col">
+        <ion-button
+          expand="block"
+          color="danger"
+          shape="round"
+          class="confirm-button"
+          (click)="saveChanges()"
+          >{{ isEditable ? 'Guardar cambios' : 'Editar quedada' }}</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ng-template #loading>
+    <div class="loading-container">
+      <ion-spinner class="large-spinner"></ion-spinner>
+      <p class="loading-text">Cargando...</p>
+    </div>
+  </ng-template>
+</ion-content>

@@ -29,7 +29,7 @@
   <div *ngIf="currentTab === 'unete' || currentTab === ''">
     <h1>¡Apúntate a una quedada!</h1>
     <div *ngFor="let meeting of meetings" class="tarjetas">
-      <ion-card>
+      <ion-card (click)="onMeetingClick(meeting.id)">
         <ion-card-header>
           <ion-card-title>{{ meeting.titulo }}</ion-card-title>
         </ion-card-header>
@@ -44,7 +44,7 @@
               <app-slider
                 [name]="dog.nombre"
                 [photoUrl]="dog.foto"
-                (dogClick)="onDogClick(dog)"
+                (click)="onDogClick(dog, $event)"
               ></app-slider>
             </div>
           </div>
@@ -54,10 +54,11 @@
     </div>
   </div>
 
+
   <div *ngIf="currentTab === 'misQuedadas' || currentTab === ''">
     <h1>Participando en ellas</h1>
     <div *ngFor="let meeting of meetings" class="tarjetas">
-      <ion-card (dogClick)="onMeetingClick(meeting.id)">
+      <ion-card (click)="onMeetingClick(meeting.id)">
         <ion-card-header>
           <ion-card-title>{{ meeting.titulo }}</ion-card-title>
         </ion-card-header>
@@ -72,7 +73,7 @@
               <app-slider
                 [name]="dog.nombre"
                 [photoUrl]="dog.foto"
-                (dogClick)="onDogClick(dog)"
+                (click)="onDogClick(dog, $event)"
               ></app-slider>
             </div>
           </div>
@@ -85,7 +86,7 @@
   <div *ngIf="currentTab === 'misQuedadas' || currentTab === ''">
     <h1>Mi lista de quedadas</h1>
     <div *ngFor="let meeting of meetings" class="tarjetas">
-      <ion-card>
+      <ion-card (click)="onMeetingClick(meeting.id)">
         <ion-card-header>
           <ion-card-title>{{ meeting.titulo }}</ion-card-title>
         </ion-card-header>
@@ -100,12 +101,12 @@
               <app-slider
                 [name]="dog.nombre"
                 [photoUrl]="dog.foto"
-                (dogClick)="onDogClick(dog)"
+                (click)="onDogClick(dog, $event)"
               ></app-slider>
             </div>
           </div>
           <div class="dual-buttons">
-            <ion-button expand="block" color="danger" class="dual-button" shape="round">Editar</ion-button>
+            <ion-button expand="block" color="danger" class="dual-button" shape="round" (click)="onMeetingEditClick(meeting.id,  $event)">Editar</ion-button>
             <ion-button expand="block" color="danger" class="dual-button" shape="round">Eliminar</ion-button>
           </div>
         </ion-card-content>

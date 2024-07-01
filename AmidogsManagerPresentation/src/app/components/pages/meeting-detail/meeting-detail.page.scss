@@ -1,0 +1,98 @@
+.form-grid-non-editable {
+  --ion-grid-padding: 0;
+  --ion-grid-width: 100%;
+  padding: 1rem;
+  background-color: #2c2c2c;
+  border-radius: 15px;
+  padding: 15px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-grid {
+  --ion-grid-padding: 0;
+  --ion-grid-width: 100%;
+  padding: 1rem;
+}
+
+.editable-form-col {
+  text-align: center;
+}
+
+.non-editable-form-col {
+  text-align: left;
+}
+
+.form-item {
+  --highlight-background: #333;
+  --highlight-color-focused: #fff;
+  --background: #333;
+  --color: #fff;
+  border-radius: 25px;
+}
+
+.form-label {
+  display: block;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
+}
+
+.form-input {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.confirm-button {
+  color: white;
+  margin-top: 1rem;
+}
+
+.non-editable-text {
+  display: block;
+  background: none;
+  text-align: left;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 18px;
+  color: white;
+  margin: 0.5rem 0;
+}
+
+.non-editable-title {
+  display: block;
+  background: none;
+  text-align: center;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 15px;
+  color: white;
+  margin: 0.5rem 0;
+  font-weight: bold; 
+  font-size: 25px; color: #f90404;
+}
+
+
+.horizontal-slider {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.horizontal-slider::-webkit-scrollbar {
+  display: none; /* Ocultar barra de desplazamiento en navegadores basados en WebKit */
+}
+
+.horizontal-slider {
+  -ms-overflow-style: none; /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
+  scrollbar-width: none; /* Ocultar barra de desplazamiento en Firefox */
+}
+
+.slider-item {
+  margin-right: 10px;
+}
