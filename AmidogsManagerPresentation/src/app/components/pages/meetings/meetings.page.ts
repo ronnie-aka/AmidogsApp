@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DogService } from 'src/app/services/api/dog.service';
-import { ToastController } from '@ionic/angular';
+import { ToastController, AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-meetings',
@@ -16,7 +16,9 @@ export class meetingsPage {
   constructor(
     private dogService: DogService,
     private router: Router,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private alertController: AlertController,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit(): void {
@@ -40,25 +42,56 @@ export class meetingsPage {
 
   goToCrearQuedada() {
     const newMeeting = {
-      fecha: new Date().getTime(), // Ejemplo: fecha actual en formato timestamp
-      hora: new Date().getTime(), // Ejemplo: hora actual en formato timestamp
-      perros: [], // Aquí debes incluir los perros participantes de la quedada, según tu lógica de aplicación
-      descripcion: '', // Aquí la descripción de la quedada
-      titulo: '', // Título de la quedada
-      ubicacion: '', // Ubicación de la quedada
+      fecha: new Date().getTime(),
+      hora: new Date().getTime(),
+      perros: [],
+      descripcion: '',
+      titulo: '',
+      ubicacion: '',
+      maxParticipantes: '',
     };
 
     this.dogService.createMeeting(newMeeting).subscribe({
       next: (data) => {
-        // Puedes redirigir a la página de detalles de la nueva quedada si es necesario
-        this.router.navigate(['/tabs/meeting-detail', data.id]);
+        this.router.navigate(['/tabs/meeting-detail', 'new', { editable: true, newMeeting: true }]);
       },
       error: (error) => {
-        // Aquí podrías mostrar un mensaje de error utilizando ToastController
         this.presentToast('Error al crear la quedada');
       },
     });
   }
+
+  async deleteMeetingClick(meetingId: any) {
+    const alert = await this.alertController.create({
+      header: 'Confirmar eliminación',
+      message: '¿Estás seguro de que deseas eliminar esta quedada?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary'
+        },
+        {
+          text: 'Eliminar',
+          handler: () => {
+            this.dogService.deleteMeetingById(meetingId).subscribe({
+              next: () => {
+                this.meetings = this.meetings.filter(m => m.id !== meetingId);
+                this.presentToast('Quedada eliminada exitosamente');
+                this.navCtrl.back();
+              },
+              error: (error) => {
+                this.presentToast('Error al eliminar la quedada');
+              }
+            });
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
 
   async presentToast(message: string) {
     const toast = await this.toastController.create({
@@ -88,5 +121,9 @@ export class meetingsPage {
       meetingId,
       { editable: false },
     ]);
+  }
+
+  getHuecosLibres(meeting: any): number {
+    return meeting.maxParticipantes - (meeting.perros ? meeting.perros.length : 0);
   }
 }

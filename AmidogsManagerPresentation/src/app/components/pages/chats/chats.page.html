@@ -1,6 +1,7 @@
+<!-- src/app/pages/chats/chats.page.html -->
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Chat </ion-title>
+  <ion-toolbar class="vertical-center">
+    <ion-title> Chats </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,5 +17,17 @@
       </app-slider>
     </div>
   </div>
+
   <ion-title class="inferior-title">Chats empezados</ion-title>
+  <ion-list>
+    <ion-item *ngFor="let dog of dogs" (click)="openChat(dog)">
+      <ion-avatar slot="start">
+        <img [src]="'../../../../assets/images/' + dog.foto + '.svg'" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ dog.nombre }}</h2>
+        <p>{{ getLastMessageText(dog.id) || 'No hay mensajes aún' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

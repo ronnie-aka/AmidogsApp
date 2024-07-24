@@ -5,7 +5,7 @@
         <ion-icon name="chevron-back-outline" size="large"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Detalle de la quedada</ion-title>
+    <ion-title>{{ isNewMeeting ? 'Crear quedada' : 'Detalle de la quedada' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,7 +21,7 @@
         <ion-label *ngIf="isEditable" class="form-label">Nombre</ion-label>
         <ion-item *ngIf="isEditable" lines="none" class="form-item">
           <ion-input
-            placeholder="Dog park pack"
+            placeholder="Introduce un nombre para tu quedada"
             [(ngModel)]="meeting.titulo"
             class="form-input"
           ></ion-input>
@@ -85,7 +85,7 @@
         <ion-label class="form-label">Descripción</ion-label>
         <ion-item *ngIf="isEditable" lines="none" class="form-item">
           <ion-textarea
-            placeholder="Añade una pequeña descripción"
+            placeholder="Añade una pequeña descripción sobre la quedada."
             [(ngModel)]="meeting.descripcion"
             class="form-input"
           ></ion-textarea>
@@ -107,14 +107,14 @@
         <ion-item *ngIf="isEditable" lines="none" class="form-item">
           <ion-input
             type="text"
-            placeholder= "Recomendamos mínimo 2 perros y máximo 10"
-            [(ngModel)]="meeting.perros.length"
+            [placeholder]="meeting.maxParticipantes <= 1 || meeting.maxParticipantes > 10 ? 'Recomendamos mínimo 2 perros y máximo 10' : meeting.maxParticipantes.toString()"
+            [(ngModel)]="meeting.maxParticipantes"
             class="form-input"
           ></ion-input>
         </ion-item>
         <div *ngIf="!isEditable">
           <ion-text class="non-editable-text"
-            >{{ meeting.perros.length }}</ion-text
+            >{{meeting.maxParticipantes}}</ion-text
           >
         </div>
       </ion-col>

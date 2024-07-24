@@ -1,7 +1,9 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="vertical-center">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-button (click)="goBack()">
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title>Denunciar usuario</ion-title>
   </ion-toolbar>
@@ -23,6 +25,6 @@
       ¡Gracias por ayudarnos a mantener un espacio seguro para todos!
     </p>
     <ion-textarea placeholder="Escribe tu explicación aquí" rows="2" [(ngModel)]="reportText"></ion-textarea>
-    <ion-button expand="block" color="danger" (click)="submitReport()">Denunciar</ion-button>
+    <ion-button expand="block" color="danger" style="margin-top: 20px;" (click)="submitReport()">Denunciar</ion-button>
   </div>
 </ion-content>

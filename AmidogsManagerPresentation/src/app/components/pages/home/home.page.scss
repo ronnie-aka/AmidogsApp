@@ -1,4 +1,11 @@
 ion-content {
-    --background: var(--ion-background-color);
-  }
-  
+  --background: var(--ion-background-color);
+}
+ion-title {
+  text-align: center;
+}
+.vertical-center {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}

@@ -1,34 +1,48 @@
-:host {
-    --ion-background-color: #161616;
-    --ion-text-color: #ffffff;
-    --ion-color-selected: #ff1011;
-    --ion-color-selected-contrast: #000000;
-  }
-  
-  ion-content {
-    --background: var(--ion-background-color);
-    color: var(--ion-text-color);
-  }
-  
-  ion-datetime {
-    --background: var(--ion-background-color);
-    --color: var(--ion-text-color);
-    --placeholder-color: var(--ion-text-color);
-    --highlight-color: var(--ion-color-selected);
-    --highlight-background: var(--ion-background-color);
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: var(--ion-background-color);
-    color: var(--ion-text-color);
-  }
-  
-  .modal-header ion-button {
-    --background: transparent;
-    --color: var(--ion-text-color);
-  }
-  
+ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+ion-datetime {
+  --background: var(--ion-background-color);
+  margin: auto;
+}
+
+
+.datetime-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: var(--ion-background-color);
+  color: var(--ion-text-color);
+}
+
+.modal-header ion-title {
+  text-align: center;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+}
+
+.modal-footer ion-button {
+  --color: var(--ion-text-color);
+  flex: 1;
+  margin: 0 0.5rem;
+}
+

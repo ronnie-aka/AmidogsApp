@@ -1,0 +1,59 @@
+ion-content {
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+ion-item {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+ion-label {
+  display: inline-block;
+  max-width: 80%; /* Limitar el ancho máximo del mensaje */
+  margin: 5px 0;
+  word-wrap: break-word;
+  white-space: pre-wrap; /* Permitir que el texto se divida en varias líneas */
+  overflow-wrap: break-word; /* Forzar el ajuste de palabras largas */
+  text-align: justify; /* Justificar el texto */
+}
+
+.message-sent {
+  margin-left: auto;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.message-received {
+  margin-right: auto;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.message-input {
+  padding-left: 10px; /* Añadir padding a la izquierda del input */
+}
+
+ion-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 50%; /* Hace que la imagen tenga forma de círculo */
+  overflow: hidden; /* Oculta el contenido que se desborda del círculo */
+}
+
+ion-img.report-icon {
+  width: 30px; /* Define el ancho deseado */
+  height: 30px; /* Define el alto deseado */
+}

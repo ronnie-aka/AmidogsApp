@@ -1,14 +1,18 @@
 <ion-header class="modal-header">
-  <ion-button (click)="dismissModal()">Cancelar</ion-button>
   <ion-title>Seleccionar Fecha y Hora</ion-title>
-  <ion-button (click)="confirmDateTime()">Confirmar</ion-button>
 </ion-header>
 <ion-content>
-  <ion-datetime
-    [(ngModel)]="selectedDateTime"
-    displayFormat="DD/MM/YYYY HH:mm"
-    pickerFormat="DD/MM/YYYY HH:mm"
-    [min]="minDate"
-    [max]="maxDate"
-  ></ion-datetime>
+  <div class="datetime-container">
+    <ion-datetime
+      [(ngModel)]="selectedDateTime"
+      displayFormat="DD/MM/YYYY HH:mm"
+      pickerFormat="DD/MM/YYYY HH:mm"
+      [min]="minDate"
+      [max]="maxDate"
+    ></ion-datetime>
+  </div>
+  <div class="modal-footer">
+    <ion-button color="danger" shape="round" (click)="dismissModal()">Cancelar</ion-button>
+    <ion-button color="danger" shape="round" (click)="confirmDateTime()">Confirmar</ion-button>
+  </div>
 </ion-content>

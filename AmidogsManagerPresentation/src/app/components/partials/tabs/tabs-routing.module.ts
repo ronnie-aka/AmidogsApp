@@ -32,6 +32,10 @@ const routes: Routes = [
         loadChildren: () => import('../../pages/meeting-detail/meeting-detail.module').then(m => m.MeetingDetailPageModule)
       },
       {
+        path: 'chat-modal',
+        loadChildren: () => import('../../pages/chat-modal/chat-modal.module').then( m => m.ChatModalPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

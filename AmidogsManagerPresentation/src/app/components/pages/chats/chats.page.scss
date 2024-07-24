@@ -1,13 +1,13 @@
 .horizontal-slider {
-    display: flex;
-    overflow-x: auto;
-    padding: 10px;
-  }
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+}
 
 app-slider {
-    flex: 0 0 auto;
-    margin-right: 10px;
-  }
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
 
 .superior-title {
   color: #ffffff;
@@ -19,4 +19,14 @@ app-slider {
   color: #ffffff;
   padding-bottom: 20px;
   font-size: 20px;
+}
+
+ion-title {
+  text-align: center;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }

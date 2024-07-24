@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output} from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
+import { MatchComponent } from '../match/match.component';
 
 @Component({
   selector: 'app-card',
@@ -17,6 +18,8 @@ export class CardComponent {
   @Output() close = new EventEmitter<void>();
   @Output() paw = new EventEmitter<void>();
   @Output() cardClick = new EventEmitter<void>();
+
+  constructor(private modalController: ModalController) {}
 
   onCardClick() {
     this.cardClick.emit();

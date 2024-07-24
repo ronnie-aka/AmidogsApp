@@ -36,9 +36,9 @@
         <ion-card-content>
           <p>Fecha: {{ meeting.fecha | date: 'shortDate' }}</p>
           <p>Hora: {{ meeting.hora | date: 'shortTime' }}</p>
-          <p>Sitio: {{ meeting.sitio }}</p>
+          <p>Sitio: {{ meeting.ubicacion }}</p>
           <p>Descripción: {{ meeting.descripcion }}</p>
-          <p>Huecos libres: {{ meeting.huecosLibres }}</p>
+          <p>Huecos libres: {{ getHuecosLibres(meeting) }}</p>
           <div class="horizontal-slider">
             <div class="slider-item" *ngFor="let dog of meeting.perros">
               <app-slider
@@ -65,9 +65,9 @@
         <ion-card-content>
           <p>Fecha: {{ meeting.fecha | date: 'shortDate' }}</p>
           <p>Hora: {{ meeting.hora | date: 'shortTime' }}</p>
-          <p>Sitio: {{ meeting.sitio }}</p>
+          <p>Sitio: {{ meeting.ubicacion }}</p>
           <p>Descripción: {{ meeting.descripcion }}</p>
-          <p>Huecos libres: {{ meeting.huecosLibres }}</p>
+          <p>Huecos libres: {{ getHuecosLibres(meeting) }}</p>
           <div class="horizontal-slider">
             <div class="slider-item" *ngFor="let dog of meeting.perros">
               <app-slider
@@ -93,9 +93,9 @@
         <ion-card-content>
           <p>Fecha: {{ meeting.fecha | date: 'shortDate' }}</p>
           <p>Hora: {{ meeting.hora | date: 'shortTime' }}</p>
-          <p>Sitio: {{ meeting.sitio }}</p>
+          <p>Sitio: {{ meeting.ubicacion }}</p>
           <p>Descripción: {{ meeting.descripcion }}</p>
-          <p>Huecos libres: {{ meeting.huecosLibres }}</p>
+          <p>Huecos libres: {{ getHuecosLibres(meeting) }}</p>
           <div class="horizontal-slider">
             <div class="slider-item" *ngFor="let dog of meeting.perros">
               <app-slider
@@ -107,7 +107,7 @@
           </div>
           <div class="dual-buttons">
             <ion-button expand="block" color="danger" class="dual-button" shape="round" (click)="onMeetingEditClick(meeting.id,  $event)">Editar</ion-button>
-            <ion-button expand="block" color="danger" class="dual-button" shape="round">Eliminar</ion-button>
+            <ion-button expand="block" color="danger" class="dual-button" shape="round" (click)="deleteMeetingClick(meeting.id)">Eliminar</ion-button>
           </div>
         </ion-card-content>
       </ion-card>

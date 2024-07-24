@@ -1,0 +1,15 @@
+<div class="modal-container">
+  <ion-content>
+    <div class="modal-content">
+      <ion-title>Nuevo amidog!</ion-title>
+      <div class="match-images">
+        <img class="match-image" [src]="'../../../../assets/images/' + dog.foto + '.svg'" />
+        <img class="match-image" [src]="'../../../../assets/images/tom.svg'">
+      </div>
+      <div class="match-buttons">
+        <ion-button color="danger" shape="round" (click)="closeModal()">Seguir mirando</ion-button>
+        <ion-button color="danger" shape="round" (click)="openChat()">Ir al chat</ion-button>
+      </div>
+    </div>
+  </ion-content>
+</div>

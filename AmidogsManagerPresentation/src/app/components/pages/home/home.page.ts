@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {DogService } from 'src/app/services/api/dog.service';
+import { ModalController } from '@ionic/angular';
+import { MatchComponent } from '../../partials/match/match.component';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,7 @@ export class HomePage {
   dogs: any[] = [];
   error: any = null;
 
-  constructor(private dogService: DogService, private router: Router) {}
+  constructor(private dogService: DogService, private router: Router, private modalController: ModalController) {}
 
   ngOnInit(): void {
     this.dogService.getDogs().subscribe({
@@ -34,9 +36,16 @@ export class HomePage {
     // Aquí puedes poner la lógica que quieras que ocurra cuando se haga clic en el icono de cerrar
   }
 
-  onPawClick(dog: any): void {
+  async onPawClick(dog: any) {
     console.log('Paw icon clicked for dog:', dog);
-    // Aquí puedes poner la lógica que quieras que ocurra cuando se haga clic en el icono de la pata
+
+    const modal = await this.modalController.create({
+      component: MatchComponent,
+      componentProps: { dog: dog }, // Pasa el objeto dog aquí
+      cssClass: 'paw-modal-class' // Clase CSS opcional para el modal
+    });
+
+    await modal.present();
   }
 
 }

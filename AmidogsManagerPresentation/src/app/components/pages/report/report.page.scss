@@ -6,13 +6,18 @@
 .icon {
   font-size: 4rem;
   color: var(--ion-text-color);
-  margin-bottom: 20px;
 }
 
 .info-text {
   margin-bottom: 15px;
   font-size: 1rem;
   color: var(--ion-text-color);
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ion-textarea {
@@ -23,8 +28,4 @@ ion-textarea {
   --border-radius: 10px;
   --padding-start: 10px;
   --padding-end: 10px;
-}
-
-ion-button {
-  margin-top: 20px;
 }

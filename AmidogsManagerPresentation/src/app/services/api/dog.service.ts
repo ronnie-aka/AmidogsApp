@@ -29,4 +29,8 @@ export class DogService {
   createMeeting(meeting: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/meetings`, meeting);
   }
+
+  deleteMeetingById(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/meetings/${id}`);
+  }
 }
