@@ -59,3 +59,5 @@ C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Database\obj\Relea
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Database\obj\Release\net6.0\AmidogsManager.Database.pdb
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Database\obj\Release\net6.0\AmidogsManager.Database.genruntimeconfig.cache
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Database\obj\Release\net6.0\ref\AmidogsManager.Database.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Database\bin\Release\net6.0\Newtonsoft.Json.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Database\obj\Release\net6.0\AmidogsManager.Database.sourcelink.json

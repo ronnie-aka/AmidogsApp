@@ -18,13 +18,12 @@ namespace AmidogsManager.Lambdas
     public class GetDogsByUserIdFunction : BaseLambdaFunction
     {
         [LambdaFunction(Policies = "AWSLambdaBasicExecutionRole, AWSLambdaVPCAccessExecutionRole", MemorySize = 256, Timeout = 30)]
-        [RestApi(LambdaHttpMethod.Get, "/dogs/{userId}")]
-        public APIGatewayProxyResponse GetDogsByUserId(APIGatewayProxyRequest request, int userId)
+        [RestApi(LambdaHttpMethod.Get, "/dog/{userId}")]
+        public APIGatewayProxyResponse GetDogByUserId(APIGatewayProxyRequest request, int userId)
         {
             var amidogsManagerContext = new AmidogsManagerContext();
             var dogRespository = new DogRepository(amidogsManagerContext);
-            var dogMeetingRepository = new DogMeetingRepository(amidogsManagerContext);
-            var dogServices = new DogService(dogRespository, dogMeetingRepository);
+            var dogServices = new DogService(dogRespository);
 
             try
             {
@@ -37,7 +36,7 @@ namespace AmidogsManager.Lambdas
                     {"Access-Control-Allow-Origin", "*"},
                     {"Access-Control-Allow-Credentials", "true"}
                 },
-                    Body = JsonConvert.SerializeObject(dogServices.getDogsByUser(userId))
+                    Body = JsonConvert.SerializeObject(dogServices.getDogByUser(userId))
                 };
             }
             catch (Exception ex)

@@ -41,27 +41,12 @@ export class meetingsPage {
   }
 
   goToCrearQuedada() {
-    const newMeeting = {
-      fecha: new Date().getTime(),
-      hora: new Date().getTime(),
-      perros: [],
-      descripcion: '',
-      titulo: '',
-      ubicacion: '',
-      maxParticipantes: '',
-    };
-
-    this.dogService.createMeeting(newMeeting).subscribe({
-      next: (data) => {
-        this.router.navigate(['/tabs/meeting-detail', 'new', { editable: true, newMeeting: true }]);
-      },
-      error: (error) => {
-        this.presentToast('Error al crear la quedada');
-      },
-    });
+    this.router.navigate(['/tabs/meeting-detail', 'new', { editable: true, isNewMeeting: true }]);
   }
 
-  async deleteMeetingClick(meetingId: any) {
+  async deleteMeetingClick(meetingId: any, event: Event) {
+    event.stopPropagation();
+  
     const alert = await this.alertController.create({
       header: 'Confirmar eliminación',
       message: '¿Estás seguro de que deseas eliminar esta quedada?',
@@ -78,7 +63,6 @@ export class meetingsPage {
               next: () => {
                 this.meetings = this.meetings.filter(m => m.id !== meetingId);
                 this.presentToast('Quedada eliminada exitosamente');
-                this.navCtrl.back();
               },
               error: (error) => {
                 this.presentToast('Error al eliminar la quedada');
@@ -88,10 +72,9 @@ export class meetingsPage {
         }
       ]
     });
-
+  
     await alert.present();
   }
-
 
   async presentToast(message: string) {
     const toast = await this.toastController.create({
@@ -116,10 +99,11 @@ export class meetingsPage {
   }
 
   onMeetingClick(meetingId: any) {
+    //Añadir comprobación de si PERTENECE al usuario o no.
     this.router.navigate([
       '/tabs/meeting-detail',
       meetingId,
-      { editable: false },
+      { editable: true },
     ]);
   }
 

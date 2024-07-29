@@ -3,7 +3,7 @@
   "Transform": "AWS::Serverless-2016-10-31",
   "Description": "An AWS Serverless Application. This template is partially managed by Amazon.Lambda.Annotations (v1.0.0.0).",
   "Resources": {
-    "AmidogsManagerLambdasGetDogsByUserIdFunctionGetDogsByUserIdGenerated": {
+    "AmidogsManagerLambdasGetDogsByUserIdFunctionGetDogByUserIdGenerated": {
       "Type": "AWS::Serverless::Function",
       "Metadata": {
         "Tool": "Amazon.Lambda.Annotations",
@@ -21,12 +21,72 @@
           "AWSLambdaVPCAccessExecutionRole"
         ],
         "PackageType": "Zip",
-        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetDogsByUserIdFunction_GetDogsByUserId_Generated::GetDogsByUserId",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetDogsByUserIdFunction_GetDogByUserId_Generated::GetDogByUserId",
         "Events": {
           "RootGet": {
             "Type": "Api",
             "Properties": {
-              "Path": "/dogs/{userId}",
+              "Path": "/dog/{userId}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasGetMeetingsByDogIdFunctionGetMeetingsByDogIdGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetMeetingsByDogIdFunction_GetMeetingsByDogId_Generated::GetMeetingsByDogId",
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/meetings/{dogId}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasDeleteMeetingByIdFunctionGetMeetingsByDogIdGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.DeleteMeetingByIdFunction_GetMeetingsByDogId_Generated::GetMeetingsByDogId",
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/deleteMeeting/{meetingId}",
               "Method": "GET"
             }
           }

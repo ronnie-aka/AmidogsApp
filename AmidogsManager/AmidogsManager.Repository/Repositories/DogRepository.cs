@@ -17,14 +17,9 @@ namespace AmidogsManager.Repository.Repositories
             this.amidogsManagerContext = amidogsManagerContext;
         }
 
-        public Dog GetById(int dogId)
+        public Dog GetByUser(int userId) 
         {
-            return amidogsManagerContext.Dogs.Where(d => d.Id == dogId).FirstOrDefault();
-        }
-
-        public List<Dog> GetByUser(int userId) 
-        {
-            return amidogsManagerContext.Dogs.Where(d => d.UserId == userId).ToList<Dog>();
+            return amidogsManagerContext.Dogs.Where(d => d.UserId == userId).FirstOrDefault();
         }
     }
 }

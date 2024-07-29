@@ -13,30 +13,17 @@ namespace AmidogsManager.BusinessLogic.Services
         private readonly DogRepository dogRepository;
         private readonly DogMeetingRepository dogMeetingRepository;
 
-        public DogService(DogRepository dogRepository, DogMeetingRepository dogMeetingRepository)
+        public DogService(DogRepository dogRepository)
         {
             this.dogRepository = dogRepository;
-            this.dogMeetingRepository = dogMeetingRepository;
         }
 
-        public List<Dog> GetDogsByMeetingId(int meetingId)
-        {
-            List<DogMeeting> dogMeeting = dogMeetingRepository.GetByMeetingId(meetingId);
-            List<Dog> dogs = new List<Dog>();
-            for (int i = 0; i < dogMeeting.Count; i++)
-            {
-                dogs.Add(dogRepository.GetById(dogMeeting[i].DogId));
-            }
-
-            return dogs;
-        }
-
-        public List<Dog> getDogsByUser(int userId)
+        public Dog getDogByUser(int userId)
         {
             try 
             {
-                List<Dog> dogs = dogRepository.GetByUser(userId);
-                return dogs;
+                Dog dog = dogRepository.GetByUser(userId);
+                return dog;
             }     
             catch (Exception e){
                 throw e; 

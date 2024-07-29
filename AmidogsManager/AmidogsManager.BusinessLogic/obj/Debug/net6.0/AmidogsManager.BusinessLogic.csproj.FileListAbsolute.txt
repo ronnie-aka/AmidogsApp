@@ -17,3 +17,4 @@ C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\obj\
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\obj\Debug\net6.0\ref\AmidogsManager.BusinessLogic.dll
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\bin\Debug\net6.0\AmidogsManager.BusinessLogic.runtimeconfig.json
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\obj\Debug\net6.0\AmidogsManager.BusinessLogic.genruntimeconfig.cache
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\obj\Debug\net6.0\AmidogsManager.BusinessLogic.sourcelink.json

@@ -7,14 +7,14 @@
         "All the command line options for the Lambda command can be specified in this file."
     ],
     "profile"     : "",
-    "region"      : "eu-west-1",
+    "region"      : "eu-west-3",
     "configuration" : "Release",
     "framework"     : "net6.0",
     "s3-prefix"     : "AmidogsManager/",
     "template"      : "serverless.template",
     "template-parameters" : "",
     "function-architecture" : "x86_64",
-    "output-package"        : "C:\\Users\\Ronnie\\AppData\\Local\\Temp\\AmidogsManagerLambdasGetDogsByUserIdFunctionGetDogsByUserIdGenerated-CodeUri-Or-ImageUri-638475153989272283.zip",
+    "output-package"        : "C:\\Users\\Ronnie\\AppData\\Local\\Temp\\AmidogsManagerLambdasGetDogsByUserIdFunctionGetDogByUserIdGenerated-CodeUri-Or-ImageUri-638577935724992427.zip",
     "disable-version-check" : false,
     "s3-bucket"             : "amidogs-manager-bucket",
     "stack-name"            : "AmidogsManager"

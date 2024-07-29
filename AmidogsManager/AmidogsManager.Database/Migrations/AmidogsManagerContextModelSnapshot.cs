@@ -52,6 +52,14 @@ namespace AmidogsManager.Database.Migrations
                     b.Property<int>("Personaliity")
                         .HasColumnType("int");
 
+                    b.Property<string>("Photo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Presentation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Size")
                         .HasColumnType("int");
 
@@ -60,32 +68,10 @@ namespace AmidogsManager.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Dog", (string)null);
-                });
-
-            modelBuilder.Entity("AmidogsManager.Database.Models.DogMatch", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("DogId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MatchId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DogId");
-
-                    b.HasIndex("MatchId");
-
-                    b.ToTable("DogsMatchs", (string)null);
                 });
 
             modelBuilder.Entity("AmidogsManager.Database.Models.DogMeeting", b =>
@@ -119,10 +105,24 @@ namespace AmidogsManager.Database.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Chat")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DogId1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DogId2")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("MatchDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DogId1");
+
+                    b.HasIndex("DogId2");
 
                     b.ToTable("Match", (string)null);
                 });
@@ -138,7 +138,18 @@ namespace AmidogsManager.Database.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MaxParticpants")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MeetingName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -158,6 +169,9 @@ namespace AmidogsManager.Database.Migrations
                     b.Property<int>("Complaint")
                         .HasColumnType("int");
 
+                    b.Property<int>("DogId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -174,31 +188,12 @@ namespace AmidogsManager.Database.Migrations
             modelBuilder.Entity("AmidogsManager.Database.Models.Dog", b =>
                 {
                     b.HasOne("AmidogsManager.Database.Models.User", "User")
-                        .WithMany("Dogs")
-                        .HasForeignKey("UserId")
+                        .WithOne("Dog")
+                        .HasForeignKey("AmidogsManager.Database.Models.Dog", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("AmidogsManager.Database.Models.DogMatch", b =>
-                {
-                    b.HasOne("AmidogsManager.Database.Models.Dog", "Dog")
-                        .WithMany("DogMatch")
-                        .HasForeignKey("DogId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AmidogsManager.Database.Models.Match", "Match")
-                        .WithMany("DogMatches")
-                        .HasForeignKey("MatchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Dog");
-
-                    b.Navigation("Match");
                 });
 
             modelBuilder.Entity("AmidogsManager.Database.Models.DogMeeting", b =>
@@ -220,16 +215,30 @@ namespace AmidogsManager.Database.Migrations
                     b.Navigation("Meeting");
                 });
 
-            modelBuilder.Entity("AmidogsManager.Database.Models.Dog", b =>
-                {
-                    b.Navigation("DogMatch");
-
-                    b.Navigation("DogMeeting");
-                });
-
             modelBuilder.Entity("AmidogsManager.Database.Models.Match", b =>
                 {
-                    b.Navigation("DogMatches");
+                    b.HasOne("AmidogsManager.Database.Models.Dog", "Dog1")
+                        .WithMany("Matches")
+                        .HasForeignKey("DogId1")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("AmidogsManager.Database.Models.Dog", "Dog2")
+                        .WithMany()
+                        .HasForeignKey("DogId2")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Dog1");
+
+                    b.Navigation("Dog2");
+                });
+
+            modelBuilder.Entity("AmidogsManager.Database.Models.Dog", b =>
+                {
+                    b.Navigation("DogMeeting");
+
+                    b.Navigation("Matches");
                 });
 
             modelBuilder.Entity("AmidogsManager.Database.Models.Meeting", b =>
@@ -239,7 +248,7 @@ namespace AmidogsManager.Database.Migrations
 
             modelBuilder.Entity("AmidogsManager.Database.Models.User", b =>
                 {
-                    b.Navigation("Dogs");
+                    b.Navigation("Dog");
                 });
 #pragma warning restore 612, 618
         }

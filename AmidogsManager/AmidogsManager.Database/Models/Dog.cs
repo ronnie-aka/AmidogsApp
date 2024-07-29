@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AmidogsManager.Database.Models
@@ -10,25 +11,27 @@ namespace AmidogsManager.Database.Models
     public class Dog
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
         public string DogName { get; set; }
         public bool Genre { get; set; }
         public bool Castrated { get; set; }
         public bool Dominant { get; set; }
+        public string Photo {  get; set; }
+        public string Presentation { get; set; }
         public Breed Breed { get; set;}
         public AgeCategory AgeCategory { get; set; }
         public Personaliity Personaliity { get; set; }
         public Size Size { get; set; }
-
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
-        public virtual ICollection<DogMatch> DogMatch { get; set; }
-        public virtual ICollection<DogMeeting> DogMeeting { get; set; }
+        public int UserId { get; set;}
+        public virtual ICollection<DogMeeting>? DogMeeting { get; set; }
+        public virtual ICollection<Match>? Matches { get; set; }
 
     }
 
     public enum Breed
     {
+       Mestizo,
        Labrador, 
        Pastor_Alemán,
        Golden_Retrierver,

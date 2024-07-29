@@ -15,3 +15,4 @@ C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Rel
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Release\net6.0\AmidogsManager.Repository.pdb
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Release\net6.0\AmidogsManager.Repository.genruntimeconfig.cache
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Release\net6.0\ref\AmidogsManager.Repository.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.Repository\obj\Release\net6.0\AmidogsManager.Repository.sourcelink.json

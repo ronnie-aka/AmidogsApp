@@ -37,8 +37,6 @@ export class HomePage {
   }
 
   async onPawClick(dog: any) {
-    console.log('Paw icon clicked for dog:', dog);
-
     const modal = await this.modalController.create({
       component: MatchComponent,
       componentProps: { dog: dog }, // Pasa el objeto dog aquí

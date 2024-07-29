@@ -145,6 +145,14 @@
           (click)="saveChanges()"
           >{{ isEditable ? 'Guardar cambios' : 'Editar quedada' }}</ion-button
         >
+        <ion-button *ngIf="!isNewMeeting"
+          expand="block"
+          color="danger"
+          shape="round"
+          class="confirm-button"
+          (click)="deleteMeetingClick(meeting.id)"
+          >Eliminar</ion-button
+        >
       </ion-col>
     </ion-row>
   </ion-grid>

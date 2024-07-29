@@ -52,3 +52,4 @@ C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\obj\Release\net6.0
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\obj\Release\net6.0\linux-x64\AmidogsManager.pdb
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\obj\Release\net6.0\linux-x64\AmidogsManager.genruntimeconfig.cache
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\obj\Release\net6.0\linux-x64\ref\AmidogsManager.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\obj\Release\net6.0\linux-x64\AmidogsManager.sourcelink.json

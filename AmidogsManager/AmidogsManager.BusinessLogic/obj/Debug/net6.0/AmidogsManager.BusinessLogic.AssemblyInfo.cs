@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AmidogsManager.BusinessLogic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2141c213ac8a1024bd893c1b72a7e08601a63ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+209bd0cf683165a11128f5c32c70ce3497e2d99a")]
 [assembly: System.Reflection.AssemblyProductAttribute("AmidogsManager.BusinessLogic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AmidogsManager.BusinessLogic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

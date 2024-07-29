@@ -17,3 +17,4 @@ C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\obj\
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\obj\Release\net6.0\AmidogsManager.BusinessLogic.pdb
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\obj\Release\net6.0\AmidogsManager.BusinessLogic.genruntimeconfig.cache
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\obj\Release\net6.0\ref\AmidogsManager.BusinessLogic.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager.BusinessLogic\obj\Release\net6.0\AmidogsManager.BusinessLogic.sourcelink.json

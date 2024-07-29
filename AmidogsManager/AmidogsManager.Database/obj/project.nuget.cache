@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "R6+smP93kDi4p8D5fXjYZaprKXxhzyAmWl7WIhWkOpprtK2OFvlbZkLSvZXvI1RdiocNb4K7aRa00FaWA1FCLA==",
+  "dgSpecHash": "m5CQyhLJsKnzzqAJlbjGO5Ye2XoAcFmBYxx7o4V7lOB1d/hH4vH8Np82DV1ajufNRddYkhr/lCOi1/QjLrtQxA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj",
   "expectedPackageFiles": [
@@ -52,10 +52,12 @@
     "C:\\Users\\Ronnie\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Ronnie\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\Ronnie\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
-    "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.28\\microsoft.netcore.app.crossgen2.win-x64.6.0.28.nupkg.sha512",
-    "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
     "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512"
+    "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\6.0.28\\microsoft.netcore.app.runtime.linux-x64.6.0.28.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\6.0.28\\microsoft.aspnetcore.app.runtime.linux-x64.6.0.28.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.28\\microsoft.netcore.app.crossgen2.win-x64.6.0.28.nupkg.sha512"
   ],
   "logs": []
 }
