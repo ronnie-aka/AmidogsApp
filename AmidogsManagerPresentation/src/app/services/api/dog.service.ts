@@ -8,15 +8,18 @@ import { Observable } from 'rxjs';
 export class DogService {
   private apiUrl = 'https://665f5ae81e9017dc16f3e2de.mockapi.io/amidogs';
 
+  private newApiUrl = 'https://982bb0teq7.execute-api.eu-west-3.amazonaws.com/Prod/';
+
   constructor(private http: HttpClient) {}
 
+  //MockUp apis
   getDogs(): Observable<any> {
     return this.http.get(`${this.apiUrl}/dogsNoMatch`);
   }
 
-  getDogById(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/dogsNoMatch/${id}`);
-  }
+  //getDogById(id: string): Observable<any> {
+    //return this.http.get(`${this.apiUrl}/dogsNoMatch/${id}`);
+  //}
 
   getMeetings(): Observable<any> {
     return this.http.get(`${this.apiUrl}/meetings`);
@@ -32,5 +35,17 @@ export class DogService {
 
   deleteMeetingById(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/meetings/${id}`);
+  }
+
+  //new APIS
+
+  getDogsNoMatched(id: string) : Observable<any> {
+    return this.http.get(`${this.newApiUrl}/getUnmatchedDogs/${id}`);
+  }
+  getDogById(id: string) : Observable<any> {
+    return this.http.get(`${this.newApiUrl}/getDog/${id}`);
+  }
+  getDogByUserId(id: string) : Observable<any> {
+    return this.http.get(`${this.newApiUrl}/dog/${id}`);
   }
 }

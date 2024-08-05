@@ -10,6 +10,11 @@
     </ion-avatar>
     <ion-title>{{ dogName }}</ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="presentDeleteConfirm(dogId)">
+        <ion-img class="delete-icon" src="../../../../assets/icon/delete.svg"></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
       <ion-button (click)="redirectToReportPage()">
         <ion-img class="report-icon" src="../../../../assets/icon/reportar.svg"></ion-img>
       </ion-button>

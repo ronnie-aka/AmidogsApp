@@ -21,6 +21,17 @@ namespace AmidogsManager.Repository.Repositories
             return amidogsManagerContext.DogsMeetings.Where(d => d.DogId == dogId).ToList<DogMeeting>();
         }
 
+        public List<DogMeeting> GetDogMeetingsWithOut(int dogId)
+        {
+            return amidogsManagerContext.DogsMeetings.Where(d => d.DogId != dogId).ToList<DogMeeting>();
+        }
+
+        public List<DogMeeting> GetDogMeetingByOwnerDog(int dogId)
+        {
+            return amidogsManagerContext.DogsMeetings.Where(d => d.DogId == dogId && d.Owner == true).ToList<DogMeeting>();
+        }
+
+
         public void DeleteDogMeetingById(int meetingId)
         {
             List<DogMeeting> dogMeeting = amidogsManagerContext.DogsMeetings.Where(m => m.MeetingId == meetingId).ToList<DogMeeting>();

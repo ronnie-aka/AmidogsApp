@@ -9,10 +9,10 @@ namespace AmidogsManager.Database.Models
     public class Meeting
     {
         public int Id { get; set; }
-        public string MeetingName { get; set; }
+        public string? MeetingTitle { get; set; }
         public int MaxParticpants { get; set; }
-        public string Description { get; set; }
-        public string Location { get; set; }
+        public string? Description { get; set; }
+        public string? Location { get; set; }
         public DateTime Date { get; set; }
         public virtual ICollection<DogMeeting>? DogMeetings { get; set; }
 

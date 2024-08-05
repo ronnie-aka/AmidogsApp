@@ -110,7 +110,7 @@ export class MeetingDetailPage implements OnInit {
 
   onDogClick(dog: any, event: Event): void {
     event.stopPropagation();
-    this.router.navigate(['/tabs/dog-profile', dog.id]);
+    this.router.navigate(['/tabs/dog-profile', dog.Id]);
   }
 
   saveChanges() {

@@ -11,6 +11,7 @@ namespace AmidogsManager.Database.Models
     {
         public int Id { get; set; }
         public int DogId { get; set; }
+        public bool Owner { get; set; }
         [ForeignKey("DogId")]
         public virtual Dog Dog { get; set; }
         public int MeetingId { get; set; }

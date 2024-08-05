@@ -28,9 +28,9 @@ export class MatchComponent  implements OnInit {
     this.router.navigate([
       '/tabs/chat-modal',
       {
-        dogId: this.dog.id,
-        dogName: this.dog.nombre,
-        dogPhoto: this.dog.foto,
+        dogId: this.dog.Id,
+        dogName: this.dog.DogName,
+        dogPhoto: this.dog.Photo,
       },
     ]);
     await this.modalController.dismiss();

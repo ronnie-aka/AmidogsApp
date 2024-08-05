@@ -11,8 +11,8 @@
     <ion-row>
       <ion-col size="6" *ngFor="let dog of dogs">
         <app-card 
-        [name]="dog.nombre" 
-        [photoUrl]="dog.foto"
+        [name]="dog.DogName" 
+        [photoUrl]="dog.Photo"
         (close)="onCloseClick(dog)"
         (paw)="onPawClick(dog)"
         (cardClick)="onCardClick(dog)"></app-card>

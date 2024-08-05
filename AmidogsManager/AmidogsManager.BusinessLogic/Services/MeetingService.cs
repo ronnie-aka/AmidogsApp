@@ -19,21 +19,71 @@ namespace AmidogsManager.BusinessLogic.Services
             this.meetingRepository = meetingRepository;
         }
 
-        public List<Meeting> GetMeetingByDogId(int dogId)
+        public List<Meeting> GetMeetingsByDogId(int dogId)
         {
             try
             {
                 List<DogMeeting> dogMeetings = dogMeetingRepository.GetDogMeetingsByDogId(dogId);
                 List<Meeting> meetings = new List<Meeting>();
-                for(int i = 0; i < dogMeetings.Count; i++)
+
+                for (int i = 0; i < dogMeetings.Count; i++)
                 {
-                    meetings.Add(meetingRepository.GetMeetingById(dogMeetings[i].MeetingId));
+                    Meeting? meeting = meetingRepository.GetMeetingById(dogMeetings[i].MeetingId);
+                    if (meeting != null)
+                    {
+                        meetings.Add(meeting);
+                    }
                 }
                 return meetings;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
+            }
+        }
+        public List<Meeting> GetMeetingsWithOutDog(int dogId)
+        {
+            try
+            {
+                List<DogMeeting> dogMeetings = dogMeetingRepository.GetDogMeetingsWithOut(dogId);
+                List<Meeting> meetings = new List<Meeting>();
+
+
+                for (int i = 0; i < dogMeetings.Count; i++)
+                {
+                   Meeting? meeting = meetingRepository.GetMeetingById(dogMeetings[i].MeetingId);
+                   if (meeting != null)
+                    {
+                        meetings.Add(meeting);
+                    }
+                }
+                return meetings;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Meeting> GetMeetingsByOwnerDog(int dogId)
+        {
+            try
+            {
+                List<DogMeeting> dogMeetings = dogMeetingRepository.GetDogMeetingByOwnerDog(dogId);
+                List<Meeting> meetings = new List<Meeting>();
+                for (int i = 0; i < dogMeetings.Count; i++)
+                {
+                    Meeting? meeting = meetingRepository.GetMeetingById(dogMeetings[i].MeetingId);
+                    if (meeting != null)
+                    {
+                        meetings.Add(meeting);
+                    }
+                }
+                return meetings;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -44,9 +94,36 @@ namespace AmidogsManager.BusinessLogic.Services
                 meetingRepository.DeleteMeetingById(meetingId);
                 return "ELIMINADO";
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
+            }
+        }
+
+        public string UpdateMeeting(int meetingId, Meeting updatedMeeting)
+        {
+            try
+            {
+                Meeting? existingMeeting = meetingRepository.GetMeetingById(meetingId);
+                if (existingMeeting == null)
+                {
+                    return "Meeting not found";
+                }
+
+                // Actualizamos los campos del meeting existente con los datos del updatedMeeting.
+                existingMeeting.MeetingTitle = updatedMeeting.MeetingTitle;
+                existingMeeting.MaxParticpants = updatedMeeting.MaxParticpants;
+                existingMeeting.Description = updatedMeeting.Description;
+                existingMeeting.Date = updatedMeeting.Date;
+                existingMeeting.Location = updatedMeeting.Location;
+                // Añadir más campos según sea necesario
+
+                meetingRepository.UpdateMeeting(existingMeeting);
+                return "UPDATED";
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

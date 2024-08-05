@@ -10,8 +10,8 @@ namespace AmidogsManager.Database.Models
     public class User
     {
         public int Id { get; set; }
-        public string UserName { get; set; }
-        public string Email { get; set; }
+        public string? UserName { get; set; }
+        public string? Email { get; set; }
         public int Complaint {  get; set; }
 
         public int DogId { get; set; }

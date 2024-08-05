@@ -8,11 +8,11 @@
 <ion-content [fullscreen]="true">
   <ion-title class="superior-title">Chats nuevos</ion-title>
   <div class="horizontal-slider">
-    <div class="slider-item" *ngFor="let dog of dogs">
+    <div class="slider-item" *ngFor="let dog of dogsWithoutMsg">
       <app-slider
-        [name]="dog.nombre"
-        [photoUrl]="dog.foto"
-        (dogClick)="onDogClick(dog)"
+        [name]="dog.DogName"
+        [photoUrl]="dog.Photo"
+        (dogClick)="openChat(dog)"
       >
       </app-slider>
     </div>
@@ -20,13 +20,13 @@
 
   <ion-title class="inferior-title">Chats empezados</ion-title>
   <ion-list>
-    <ion-item *ngFor="let dog of dogs" (click)="openChat(dog)">
+    <ion-item *ngFor="let dog of dogsWithMsg" (click)="openChat(dog)">
       <ion-avatar slot="start">
-        <img [src]="'../../../../assets/images/' + dog.foto + '.svg'" />
+        <img [src]="'../../../../assets/images/' + dog.Photo + '.svg'" />
       </ion-avatar>
       <ion-label>
-        <h2>{{ dog.nombre }}</h2>
-        <p>{{ getLastMessageText(dog.id) || 'No hay mensajes aún' }}</p>
+        <h2>{{ dog.DogName }}</h2>
+        <p>{{ getLastMessageText(dog.Id) || 'No hay mensajes aún' }}</p>
       </ion-label>
     </ion-item>
   </ion-list>

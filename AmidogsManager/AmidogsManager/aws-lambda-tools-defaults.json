@@ -14,7 +14,7 @@
     "template"      : "serverless.template",
     "template-parameters" : "",
     "function-architecture" : "x86_64",
-    "output-package"        : "C:\\Users\\Ronnie\\AppData\\Local\\Temp\\AmidogsManagerLambdasGetDogsByUserIdFunctionGetDogByUserIdGenerated-CodeUri-Or-ImageUri-638577935724992427.zip",
+    "output-package"        : "C:\\Users\\Ronnie\\AppData\\Local\\Temp\\AmidogsManagerLambdasGetDogsByUserIdFunctionGetDogByUserIdGenerated-CodeUri-Or-ImageUri-638584046705800025.zip",
     "disable-version-check" : false,
     "s3-bucket"             : "amidogs-manager-bucket",
     "stack-name"            : "AmidogsManager"

@@ -36,32 +36,29 @@ namespace AmidogsManager.Database.Migrations
                     b.Property<int>("Breed")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Castrated")
-                        .HasColumnType("bit");
-
                     b.Property<string>("DogName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Dominant")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Genre")
                         .HasColumnType("bit");
 
                     b.Property<int>("Personaliity")
                         .HasColumnType("int");
 
                     b.Property<string>("Photo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Presentation")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Sex")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Size")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Sterilized")
+                        .HasColumnType("bit");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -88,6 +85,9 @@ namespace AmidogsManager.Database.Migrations
                     b.Property<int>("MeetingId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Owner")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("DogId");
@@ -106,7 +106,6 @@ namespace AmidogsManager.Database.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Chat")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DogId1")
@@ -114,6 +113,12 @@ namespace AmidogsManager.Database.Migrations
 
                     b.Property<int>("DogId2")
                         .HasColumnType("int");
+
+                    b.Property<bool>("LikeDog1")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LikeDog2")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("MatchDate")
                         .HasColumnType("datetime2");
@@ -139,18 +144,15 @@ namespace AmidogsManager.Database.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MaxParticpants")
                         .HasColumnType("int");
 
-                    b.Property<string>("MeetingName")
-                        .IsRequired()
+                    b.Property<string>("MeetingTitle")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -173,11 +175,9 @@ namespace AmidogsManager.Database.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

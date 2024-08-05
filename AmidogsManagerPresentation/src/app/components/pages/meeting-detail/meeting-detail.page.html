@@ -126,8 +126,8 @@
         <div class="horizontal-slider">
           <div class="slider-item" *ngFor="let dog of meeting.perros">
             <app-slider
-              [name]="dog.nombre"
-              [photoUrl]="dog.foto"
+              [name]="dog.DogName"
+              [photoUrl]="dog.Photo"
               (click)="onDogClick(dog, $event)"
             ></app-slider>
           </div>

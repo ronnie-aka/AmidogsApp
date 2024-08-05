@@ -11,12 +11,14 @@ namespace AmidogsManager.Database.Models
     {
         public int Id { get; set; }
         public DateTime MatchDate { get; set; }
-        public string Chat { get; set; }
+        public string? Chat { get; set; }
         public int DogId1 { get; set; }
         [ForeignKey("DogId1")]
         public Dog Dog1 { get; set; }
         public int DogId2 { get; set; }
         [ForeignKey("DogId2")]
         public Dog Dog2 { get; set; }
+        public bool LikeDog1 { get; set; } = false;
+        public bool LikeDog2 { get; set; } = false;
     }
 }

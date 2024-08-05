@@ -11,12 +11,12 @@ namespace AmidogsManager.Database.Models
     public class Dog
     {
         public int Id { get; set; }
-        public string DogName { get; set; }
-        public bool Genre { get; set; }
-        public bool Castrated { get; set; }
+        public string? DogName { get; set; }
+        public bool Sex { get; set; }
+        public bool Sterilized { get; set; }
         public bool Dominant { get; set; }
-        public string Photo {  get; set; }
-        public string Presentation { get; set; }
+        public string? Photo {  get; set; }
+        public string? Presentation { get; set; }
         public Breed Breed { get; set;}
         public AgeCategory AgeCategory { get; set; }
         public Personaliity Personaliity { get; set; }

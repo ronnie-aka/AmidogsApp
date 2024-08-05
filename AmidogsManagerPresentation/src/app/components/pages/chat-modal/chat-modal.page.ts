@@ -1,9 +1,15 @@
-// src/app/pages/chat-modal/chat-modal.page.ts
-
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SocketService } from 'src/app/services/utils/socket.service';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
+import { MatchService } from 'src/app/services/api/match.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-chat-modal',
@@ -13,18 +19,21 @@ import { NavController } from '@ionic/angular';
 export class ChatModalPage implements OnInit, OnDestroy {
   @ViewChild('messageInput', { static: false }) messageInput?: ElementRef;
 
-  dogId?: string;
+  dogId: string = ''
   dogName?: string;
   dogPhoto?: string;
 
-  messages: { text: string, user: boolean }[] = [];
+  messages: { text: string; user: boolean }[] = [];
   newMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private socketService: SocketService,
     private navCtrl: NavController,
-    private router: Router
+    private matchService: MatchService,
+    private router: Router,
+    private alertController: AlertController,
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {
@@ -68,7 +77,7 @@ export class ChatModalPage implements OnInit, OnDestroy {
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.router.navigate(['/tabs/chats']);
   }
 
   onDogClick(): void {
@@ -78,5 +87,61 @@ export class ChatModalPage implements OnInit, OnDestroy {
   redirectToReportPage() {
     const reportId = this.dogId;
     this.router.navigate(['/report', reportId]);
+  }
+
+  async presentDeleteConfirm(dogId: string) {
+    const alert = await this.alertController.create({
+      header: 'Confirmar eliminación',
+      message: '¿Estás seguro de que quieres eliminar este match?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary'
+        },
+        {
+          text: 'Eliminar',
+          handler: () => {
+            this.deleteMatch(dogId);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async deleteMatch(dogId: string) {
+    this.matchService.getMatchByDogs('1', dogId).subscribe({
+      next: async (match) => {
+        if (match) {
+          this.matchService.deleteMatch(match.Id).subscribe({
+            next: async () => {
+              await this.presentToast('Match eliminado exitosamente');
+              this.goBack();
+            },
+            error: async (error) => {
+              console.error('Error deleting match:', error);
+              await this.presentToast('Error al eliminar el match');
+            }
+          });
+        } else {
+          console.error('No match found');
+          await this.presentToast('No se encontró el match');
+        }
+      },
+      error: async (error) => {
+        console.error('Error fetching match:', error);
+        await this.presentToast('Error al buscar el match');
+      }
+    });
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000, // Duración del toast en milisegundos
+    });
+    await toast.present();
   }
 }

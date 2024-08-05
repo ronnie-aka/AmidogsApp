@@ -23,7 +23,8 @@ namespace AmidogsManager.Lambdas
         {
             var amidogsManagerContext = new AmidogsManagerContext();
             var dogRespository = new DogRepository(amidogsManagerContext);
-            var dogServices = new DogService(dogRespository);
+            var matchRepository = new MatchRepository(amidogsManagerContext);
+            var dogServices = new DogService(dogRespository, matchRepository);
 
             try
             {
@@ -36,7 +37,7 @@ namespace AmidogsManager.Lambdas
                     {"Access-Control-Allow-Origin", "*"},
                     {"Access-Control-Allow-Credentials", "true"}
                 },
-                    Body = JsonConvert.SerializeObject(dogServices.getDogByUser(userId))
+                    Body = JsonConvert.SerializeObject(dogServices.GetDogByUser(userId))
                 };
             }
             catch (Exception ex)

@@ -18,7 +18,7 @@ namespace AmidogsManager.Lambdas
     public class DeleteMeetingByIdFunction : BaseLambdaFunction
     {
         [LambdaFunction(Policies = "AWSLambdaBasicExecutionRole, AWSLambdaVPCAccessExecutionRole", MemorySize = 256, Timeout = 30)]
-        [RestApi(LambdaHttpMethod.Get, "/deleteMeeting/{meetingId}")]
+        [RestApi(LambdaHttpMethod.Delete, "/deleteMeeting/{meetingId}")]
         public APIGatewayProxyResponse GetMeetingsByDogId(APIGatewayProxyRequest request, int meetingId)
         {
             var amidogsManagerContext = new AmidogsManagerContext();

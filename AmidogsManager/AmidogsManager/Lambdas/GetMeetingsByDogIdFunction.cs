@@ -18,7 +18,7 @@ namespace AmidogsManager.Lambdas
     public class GetMeetingsByDogIdFunction : BaseLambdaFunction
     {
         [LambdaFunction(Policies = "AWSLambdaBasicExecutionRole, AWSLambdaVPCAccessExecutionRole", MemorySize = 256, Timeout = 30)]
-        [RestApi(LambdaHttpMethod.Get, "/meetings/{dogId}")]
+        [RestApi(LambdaHttpMethod.Get, "/meetingsWithDog/{dogId}")]
         public APIGatewayProxyResponse GetMeetingsByDogId(APIGatewayProxyRequest request, int dogId)
         {
             var amidogsManagerContext = new AmidogsManagerContext();
@@ -37,7 +37,7 @@ namespace AmidogsManager.Lambdas
                     {"Access-Control-Allow-Origin", "*"},
                     {"Access-Control-Allow-Credentials", "true"}
                 },
-                    Body = JsonConvert.SerializeObject(meetingServices.GetMeetingByDogId(dogId))
+                    Body = JsonConvert.SerializeObject(meetingServices.GetMeetingsByDogId(dogId))
                 };
             }
             catch (Exception ex)

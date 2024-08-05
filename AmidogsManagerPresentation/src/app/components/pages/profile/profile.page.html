@@ -5,7 +5,7 @@
         <ion-icon name="chevron-back-outline" size="large"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>{{ dog?.nombre || 'Perfil del Perro' }}</ion-title>
+    <ion-title>{{ dog?.DogName || 'Perfil del Perro' }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="toggleEditable()">
         {{ isEditable ? 'Guardar' : 'Editar' }}
@@ -18,7 +18,7 @@
   <ion-grid *ngIf="dog; else loading">
     <ion-row>
       <ion-col size="12" class="image-container">
-        <img [src]="'../../../../assets/images/' + dog.foto + '.svg'" class="image" />
+        <img [src]="'../../../../assets/images/' + dog.Photo + '.svg'" class="image" />
       </ion-col>
     </ion-row>
 
@@ -28,38 +28,38 @@
         <div class="card">
           <p>
             <strong>- Género: </strong>
-            <span *ngIf="!isEditable">{{dog.genero}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.genero" class="editable-input"/>
+            <span *ngIf="!isEditable">{{dog.Sex}}</span>
+            <input *ngIf="isEditable" [(ngModel)]="dog.Sex" class="editable-input"/>
           </p>
           <p>
-            <strong>- Castrado: </strong>
-            <span *ngIf="!isEditable">{{dog.castrado}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.castrado" class="editable-input"/>
+            <strong>- Esterilizado: </strong>
+            <span *ngIf="!isEditable">{{dog.Sterilized}}</span>
+            <input *ngIf="isEditable" [(ngModel)]="dog.Sterilized" class="editable-input"/>
           </p>
           <p>
             <strong>- Dominante: </strong>
-            <span *ngIf="!isEditable">{{dog.dominante}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.dominante" class="editable-input"/>
+            <span *ngIf="!isEditable">{{dog.Dominant}}</span>
+            <input *ngIf="isEditable" [(ngModel)]="dog.Dominant" class="editable-input"/>
           </p>
           <p>
             <strong>- Raza: </strong>
-            <span *ngIf="!isEditable">{{dog.raza}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.raza" class="editable-input"/>
+            <span *ngIf="!isEditable">{{dog.Breed}}</span>
+            <input *ngIf="isEditable" [(ngModel)]="dog.Breed" class="editable-input"/>
           </p>
           <p>
             <strong>- Edad: </strong>
-            <span *ngIf="!isEditable">{{dog.rangoEdad}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.rangoEdad" class="editable-input"/>
+            <span *ngIf="!isEditable">{{dog.AgeCategory}}</span>
+            <input *ngIf="isEditable" [(ngModel)]="dog.AgeCategory" class="editable-input"/>
           </p>
           <p>
             <strong>- Personalidad: </strong>
-            <span *ngIf="!isEditable">{{dog.personalidad}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.personalidad" class="editable-input" />
+            <span *ngIf="!isEditable">{{dog.Personaliity}}</span>
+            <input *ngIf="isEditable" [(ngModel)]="dog.Personaliity" class="editable-input" />
           </p>
           <p>
             <strong>- Tamaño: </strong>
-            <span *ngIf="!isEditable">{{dog.tamano}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.tamano"  class="editable-input"/>
+            <span *ngIf="!isEditable">{{dog.Size}}</span>
+            <input *ngIf="isEditable" [(ngModel)]="dog.Size"  class="editable-input"/>
           </p>
         </div>
       </ion-col>
@@ -68,8 +68,8 @@
       <ion-col size="12" class="section">
         <h3>Presentación</h3>
         <div class="card">
-          <p *ngIf="!isEditable">{{dog.presentacion}}</p>
-          <textarea *ngIf="isEditable" [(ngModel)]="dog.presentacion" class="editable-input"></textarea>
+          <p *ngIf="!isEditable">{{dog.Presentation}}</p>
+          <textarea *ngIf="isEditable" [(ngModel)]="dog.Presentation" class="editable-input"></textarea>
         </div>
       </ion-col>
     </ion-row>
