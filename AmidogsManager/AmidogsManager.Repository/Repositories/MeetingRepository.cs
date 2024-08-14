@@ -40,5 +40,10 @@ namespace AmidogsManager.Repository.Repositories
             amidogsManagerContext.Meetings.Update(meeting);
             amidogsManagerContext.SaveChanges();
         }
+        public void AddMeeting(Meeting meeting)
+        {
+            amidogsManagerContext.Meetings.Add(meeting);
+            amidogsManagerContext.SaveChanges();
+        }
     }
 }

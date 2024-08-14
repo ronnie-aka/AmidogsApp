@@ -43,6 +43,10 @@ namespace AmidogsManager.Repository.Repositories
                 throw new Exception("Usuario no encontrado");
             }
         }
+        public User? GetUserByEmail(string email)
+        {
+            return amidogsManagerContext.Users.Where(u => u.Email == email).FirstOrDefault();
+        }
 
     }
 }

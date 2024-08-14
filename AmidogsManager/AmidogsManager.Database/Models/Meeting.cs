@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace AmidogsManager.Database.Models
 {
@@ -14,6 +15,7 @@ namespace AmidogsManager.Database.Models
         public string? Description { get; set; }
         public string? Location { get; set; }
         public DateTime Date { get; set; }
+        [JsonIgnore]
         public virtual ICollection<DogMeeting>? DogMeetings { get; set; }
 
         public Meeting()

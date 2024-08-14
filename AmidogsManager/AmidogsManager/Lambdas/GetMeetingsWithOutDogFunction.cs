@@ -18,7 +18,7 @@ namespace AmidogsManager.Lambdas
     public class GetMeetingsWithOutDogFunction : BaseLambdaFunction
     {
         [LambdaFunction(Policies = "AWSLambdaBasicExecutionRole, AWSLambdaVPCAccessExecutionRole", MemorySize = 256, Timeout = 30)]
-        [RestApi(LambdaHttpMethod.Get, "/meetingsWithOutDog/{dogId}")]
+        [RestApi(LambdaHttpMethod.Get, "/getMeetingsWithOutDog/{dogId}")]
         public APIGatewayProxyResponse GetMeetingsWithOutDog(APIGatewayProxyRequest request, int dogId)
         {
             var amidogsManagerContext = new AmidogsManagerContext();
@@ -35,7 +35,9 @@ namespace AmidogsManager.Lambdas
                 {
                     {"Content-Type", "application/json"},
                     {"Access-Control-Allow-Origin", "*"},
-                    {"Access-Control-Allow-Credentials", "true"}
+                    {"Access-Control-Allow-Credentials", "true"},
+                    {"Access-Control-Allow-Methods", "GET, OPTIONS"},
+                    {"Access-Control-Allow-Headers", "Content-Type, Authorization"}
                 },
                     Body = JsonConvert.SerializeObject(meetingServices.GetMeetingsWithOutDog(dogId))
                 };
@@ -45,7 +47,11 @@ namespace AmidogsManager.Lambdas
                 Console.WriteLine(ex.ToString());
                 return new APIGatewayProxyResponse
                 {
-                    StatusCode = (int)HttpStatusCode.NotFound
+                    StatusCode = (int)HttpStatusCode.NotFound,
+                    Headers = new Dictionary<string, string>
+                    {
+                        {"Access-Control-Allow-Origin", "*"}
+                    }
                 };
             }
         }

@@ -22,9 +22,10 @@ namespace AmidogsManager.Lambdas
         public APIGatewayProxyResponse GetUnmatchedDogs(APIGatewayProxyRequest request, int dogId)
         {
             var amidogsManagerContext = new AmidogsManagerContext();
-            var dogRepository = new DogRepository(amidogsManagerContext);
+            var dogRespository = new DogRepository(amidogsManagerContext);
             var matchRepository = new MatchRepository(amidogsManagerContext);
-            var dogServices = new DogService(dogRepository, matchRepository);
+            var dogMeetingRepository = new DogMeetingRepository(amidogsManagerContext);
+            var dogServices = new DogService(dogRespository, matchRepository, dogMeetingRepository);
 
             try
             {

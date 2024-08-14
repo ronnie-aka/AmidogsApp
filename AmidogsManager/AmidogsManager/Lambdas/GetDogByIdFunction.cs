@@ -24,7 +24,8 @@ namespace AmidogsManager.Lambdas
             var amidogsManagerContext = new AmidogsManagerContext();
             var dogRespository = new DogRepository(amidogsManagerContext);
             var matchRepository = new MatchRepository(amidogsManagerContext);
-            var dogServices = new DogService(dogRespository, matchRepository);
+            var dogMeetingRepository = new DogMeetingRepository(amidogsManagerContext);
+            var dogServices = new DogService(dogRespository, matchRepository, dogMeetingRepository);
 
             try
             {

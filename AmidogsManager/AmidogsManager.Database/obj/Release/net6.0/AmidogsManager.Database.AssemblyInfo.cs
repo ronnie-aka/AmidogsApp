@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AmidogsManager.Database")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9c73630870cc1901c1897b3dcef1568c35331d1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21773910bd70b76572f44deaf2ba8529572fdc6f")]
 [assembly: System.Reflection.AssemblyProductAttribute("AmidogsManager.Database")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AmidogsManager.Database")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

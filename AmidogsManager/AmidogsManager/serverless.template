@@ -33,36 +33,6 @@
         }
       }
     },
-    "AmidogsManagerLambdasGetMeetingsByDogIdFunctionGetMeetingsByDogIdGenerated": {
-      "Type": "AWS::Serverless::Function",
-      "Metadata": {
-        "Tool": "Amazon.Lambda.Annotations",
-        "SyncedEvents": [
-          "RootGet"
-        ]
-      },
-      "Properties": {
-        "Runtime": "dotnet6",
-        "CodeUri": ".",
-        "MemorySize": 256,
-        "Timeout": 30,
-        "Policies": [
-          "AWSLambdaBasicExecutionRole",
-          "AWSLambdaVPCAccessExecutionRole"
-        ],
-        "PackageType": "Zip",
-        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetMeetingsByDogIdFunction_GetMeetingsByDogId_Generated::GetMeetingsByDogId",
-        "Events": {
-          "RootGet": {
-            "Type": "Api",
-            "Properties": {
-              "Path": "/meetingsWithDog/{dogId}",
-              "Method": "GET"
-            }
-          }
-        }
-      }
-    },
     "AmidogsManagerLambdasDeleteMeetingByIdFunctionGetMeetingsByDogIdGenerated": {
       "Type": "AWS::Serverless::Function",
       "Metadata": {
@@ -116,37 +86,7 @@
           "RootGet": {
             "Type": "Api",
             "Properties": {
-              "Path": "/meetingsWithOutDog/{dogId}",
-              "Method": "GET"
-            }
-          }
-        }
-      }
-    },
-    "AmidogsManagerLambdasGetMeetingsByOwnerDogFunctionGetMeetingsWithOutDogGenerated": {
-      "Type": "AWS::Serverless::Function",
-      "Metadata": {
-        "Tool": "Amazon.Lambda.Annotations",
-        "SyncedEvents": [
-          "RootGet"
-        ]
-      },
-      "Properties": {
-        "Runtime": "dotnet6",
-        "CodeUri": ".",
-        "MemorySize": 256,
-        "Timeout": 30,
-        "Policies": [
-          "AWSLambdaBasicExecutionRole",
-          "AWSLambdaVPCAccessExecutionRole"
-        ],
-        "PackageType": "Zip",
-        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetMeetingsByOwnerDogFunction_GetMeetingsWithOutDog_Generated::GetMeetingsWithOutDog",
-        "Events": {
-          "RootGet": {
-            "Type": "Api",
-            "Properties": {
-              "Path": "/meetingsByOwnerDog/{dogId}",
+              "Path": "/getMeetingsWithOutDog/{dogId}",
               "Method": "GET"
             }
           }
@@ -508,6 +448,306 @@
             "Properties": {
               "Path": "/getUserByDogId/{dogId}",
               "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasGetMeetingsWithDogFunctionGetMeetingsByDogIdGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetMeetingsWithDogFunction_GetMeetingsByDogId_Generated::GetMeetingsByDogId",
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/getMeetingsWithDog/{dogId}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasGetMeetingsWithOwnerDogFunctionGetMeetingsWithOutDogGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetMeetingsWithOwnerDogFunction_GetMeetingsWithOutDog_Generated::GetMeetingsWithOutDog",
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/getMeetingsDogIsOwner/{dogId}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasGetMeetingByIdFunctionGetMeetingByIdGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetMeetingByIdFunction_GetMeetingById_Generated::GetMeetingById",
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/getMeetingById/{meetingId}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasGetDogsInMeetingFunctionGetDogsInMeetingGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetDogsInMeetingFunction_GetDogsInMeeting_Generated::GetDogsInMeeting",
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/meeting/{meetingId}/getDogsInMeeting",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasAddDogToMeetingFunctionAddDogToMeetingGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPost"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.AddDogToMeetingFunction_AddDogToMeeting_Generated::AddDogToMeeting",
+        "Events": {
+          "RootPost": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/addDogToMeeting",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasRemoveDogFromMeetingFunctionRemoveDogFromMeetingGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPost"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.RemoveDogFromMeetingFunction_RemoveDogFromMeeting_Generated::RemoveDogFromMeeting",
+        "Events": {
+          "RootPost": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/removeDogFromMeeting",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasCreateMeetingFunctionCreateMeetingGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPost"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.CreateMeetingFunction_CreateMeeting_Generated::CreateMeeting",
+        "Events": {
+          "RootPost": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/createMeeting",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasGetUserByEmailFunctionGetUserByEmailGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.GetUserByEmailFunction_GetUserByEmail_Generated::GetUserByEmail",
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/getUserByEmail/{email}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasUpdateDogFunctionUpdateDogGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPut"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.UpdateDogFunction_UpdateDog_Generated::UpdateDog",
+        "Events": {
+          "RootPut": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/UpdateDog/{dogId}",
+              "Method": "PUT"
+            }
+          }
+        }
+      }
+    },
+    "AmidogsManagerLambdasUpdateDogFunctionOptionsGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootOptions"
+        ]
+      },
+      "Properties": {
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "AWSLambdaVPCAccessExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "AmidogsManager::AmidogsManager.Lambdas.UpdateDogFunction_Options_Generated::Options",
+        "Events": {
+          "RootOptions": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/UpdateDog/{dogId}",
+              "Method": "OPTIONS"
             }
           }
         }

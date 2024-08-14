@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace AmidogsManager.Repository.Repositories
 {
@@ -15,16 +16,31 @@ namespace AmidogsManager.Repository.Repositories
         {
             this.amidogsManagerContext = amidogsManagerContext;
         }
+        public List<DogMeeting> GetDogsInMeeting(int meetingid) {
+            return amidogsManagerContext.DogsMeetings.Where(d => d.MeetingId == meetingid).ToList<DogMeeting>();
+        }
 
-        public List<DogMeeting> GetDogMeetingsByDogId(int dogId)
+        public List<DogMeeting> GetDogMeetingsWithdog(int dogId)
         {
-            return amidogsManagerContext.DogsMeetings.Where(d => d.DogId == dogId).ToList<DogMeeting>();
+            return amidogsManagerContext.DogsMeetings.Where(d => d.DogId == dogId && d.Owner == false).ToList<DogMeeting>();
         }
 
         public List<DogMeeting> GetDogMeetingsWithOut(int dogId)
         {
-            return amidogsManagerContext.DogsMeetings.Where(d => d.DogId != dogId).ToList<DogMeeting>();
+            // Primero, obtén todos los MeetingIds donde el perro con dogId está involucrado
+            var meetingIdsWithDog = amidogsManagerContext.DogsMeetings
+                .Where(d => d.DogId == dogId)
+                .Select(d => d.MeetingId)
+                .ToList();
+
+            // Luego, obtén todas las quedadas que no tienen esos MeetingIds
+            var result = amidogsManagerContext.DogsMeetings
+                .Where(d => !meetingIdsWithDog.Contains(d.MeetingId))
+                .ToList();
+
+            return result;
         }
+
 
         public List<DogMeeting> GetDogMeetingByOwnerDog(int dogId)
         {
@@ -41,5 +57,31 @@ namespace AmidogsManager.Repository.Repositories
             });
             amidogsManagerContext.SaveChanges();
         }
+
+        public void AddDogToMeeting(int dogId, int meetingId, bool isOwner)
+        {
+            var dogMeeting = new DogMeeting
+            {
+                DogId = dogId,
+                MeetingId = meetingId,
+                Owner = isOwner
+            };
+
+            amidogsManagerContext.DogsMeetings.Add(dogMeeting);
+            amidogsManagerContext.SaveChanges();
+        }
+
+        public void RemoveDogFromMeeting(int dogId, int meetingId)
+        {
+            var dogMeeting = amidogsManagerContext.DogsMeetings
+                .FirstOrDefault(d => d.DogId == dogId && d.MeetingId == meetingId);
+
+            if (dogMeeting != null)
+            {
+                amidogsManagerContext.DogsMeetings.Remove(dogMeeting);
+                amidogsManagerContext.SaveChanges();
+            }
+        }
+
     }
 }

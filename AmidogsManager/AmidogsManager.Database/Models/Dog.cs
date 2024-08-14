@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -21,9 +22,11 @@ namespace AmidogsManager.Database.Models
         public AgeCategory AgeCategory { get; set; }
         public Personaliity Personaliity { get; set; }
         public Size Size { get; set; }
+
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
         public int UserId { get; set;}
+        [JsonIgnore]
         public virtual ICollection<DogMeeting>? DogMeeting { get; set; }
         public virtual ICollection<Match>? Matches { get; set; }
 

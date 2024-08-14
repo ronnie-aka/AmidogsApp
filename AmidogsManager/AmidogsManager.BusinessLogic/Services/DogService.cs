@@ -13,12 +13,14 @@ namespace AmidogsManager.BusinessLogic.Services
     {
         private readonly DogRepository dogRepository;
         private readonly MatchRepository matchRepository;
+        private readonly DogMeetingRepository dogMeetingRepository;
 
 
-        public DogService(DogRepository dogRepository, MatchRepository matchRepository)
+        public DogService(DogRepository dogRepository, MatchRepository matchRepository, DogMeetingRepository dogMeetingRepository)
         {
             this.dogRepository = dogRepository;
             this.matchRepository = matchRepository;
+            this.dogMeetingRepository = dogMeetingRepository;
         }
 
         public Dog GetDogByUser(int userId)
@@ -61,6 +63,40 @@ namespace AmidogsManager.BusinessLogic.Services
                 return dog ?? throw new InvalidOperationException($"No dog found with ID {dogId}");
             }
             catch (Exception )
+            {
+                throw;
+            }
+        }
+        public List<Dog> GetDogsInMeeting(int meetingId)
+        {
+            try
+            {
+                List<DogMeeting> dogMeetings = dogMeetingRepository.GetDogsInMeeting(meetingId).ToList();
+                List<Dog> dogsInMeeting = new List<Dog>();
+
+                foreach (var dogMeeting in dogMeetings)
+                {
+                    Dog? dog = dogRepository.GetDogById(dogMeeting.DogId);
+                    if (dog != null)
+                    {
+                        dogsInMeeting.Add(dog);
+                    }
+                }
+
+                return dogsInMeeting;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public void UpdateDog(Dog updatedDog)
+        {
+            try
+            {
+                dogRepository.UpdateDog(updatedDog);
+            }
+            catch (Exception)
             {
                 throw;
             }

@@ -46,7 +46,9 @@ namespace AmidogsManager.Lambdas
                     {
                         {"Content-Type", "application/json"},
                         {"Access-Control-Allow-Origin", "*"},
-                        {"Access-Control-Allow-Credentials", "true"}
+                        {"Access-Control-Allow-Credentials", "true"},
+                        {"Access-Control-Allow-Headers", "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token"},
+                        {"Access-Control-Allow-Methods", "POST,OPTIONS"}
                     },
                     Body = JsonConvert.SerializeObject(createdMatch)
                 };
@@ -57,6 +59,12 @@ namespace AmidogsManager.Lambdas
                 return new APIGatewayProxyResponse
                 {
                     StatusCode = (int)HttpStatusCode.InternalServerError,
+                    Headers = new Dictionary<string, string>
+                    {
+                        {"Content-Type", "application/json"},
+                        {"Access-Control-Allow-Origin", "*"},
+                        {"Access-Control-Allow-Credentials", "true"}
+                    },
                     Body = ex.Message
                 };
             }

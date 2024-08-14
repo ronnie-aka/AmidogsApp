@@ -54,5 +54,19 @@ namespace AmidogsManager.BusinessLogic.Services
                 throw;
             }
         }
+        public User? GetUserByEmail(string email)
+        {
+            try
+            {
+                User? user = userRepository.GetUserByEmail(email);
+                return user ?? throw new InvalidOperationException($"No Match found with email {email}");
+            }
+            catch (Exception ex)
+            {
+                // Registrar el error
+                Console.WriteLine($"Error in GetUserByEmail: {ex.Message}");
+                throw;
+            }
+        }
     }
 }

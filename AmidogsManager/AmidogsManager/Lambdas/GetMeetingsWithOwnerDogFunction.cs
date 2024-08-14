@@ -15,16 +15,16 @@ using Newtonsoft.Json;
 
 namespace AmidogsManager.Lambdas
 {
-    public class GetMeetingsByDogIdFunction : BaseLambdaFunction
+    public class GetMeetingsWithOwnerDogFunction : BaseLambdaFunction
     {
         [LambdaFunction(Policies = "AWSLambdaBasicExecutionRole, AWSLambdaVPCAccessExecutionRole", MemorySize = 256, Timeout = 30)]
-        [RestApi(LambdaHttpMethod.Get, "/meetingsWithDog/{dogId}")]
-        public APIGatewayProxyResponse GetMeetingsByDogId(APIGatewayProxyRequest request, int dogId)
+        [RestApi(LambdaHttpMethod.Get, "/getMeetingsDogIsOwner/{dogId}")]
+        public APIGatewayProxyResponse GetMeetingsWithOutDog(APIGatewayProxyRequest request, int dogId)
         {
             var amidogsManagerContext = new AmidogsManagerContext();
             var dogMeetingRepository = new DogMeetingRepository(amidogsManagerContext);
             var meetingRepository = new MeetingRepository(amidogsManagerContext);
-            var meetingServices = new MeetingService( dogMeetingRepository, meetingRepository);
+            var meetingServices = new MeetingService(dogMeetingRepository, meetingRepository);
 
             try
             {
@@ -35,9 +35,11 @@ namespace AmidogsManager.Lambdas
                 {
                     {"Content-Type", "application/json"},
                     {"Access-Control-Allow-Origin", "*"},
-                    {"Access-Control-Allow-Credentials", "true"}
+                    {"Access-Control-Allow-Credentials", "true"},
+                    {"Access-Control-Allow-Methods", "GET, OPTIONS"},
+                    {"Access-Control-Allow-Headers", "Content-Type, Authorization, X-Request-Name"}
                 },
-                    Body = JsonConvert.SerializeObject(meetingServices.GetMeetingsByDogId(dogId))
+                    Body = JsonConvert.SerializeObject(meetingServices.GetMeetingsByOwnerDog(dogId))
                 };
             }
             catch (Exception ex)
@@ -45,7 +47,11 @@ namespace AmidogsManager.Lambdas
                 Console.WriteLine(ex.ToString());
                 return new APIGatewayProxyResponse
                 {
-                    StatusCode = (int)HttpStatusCode.NotFound
+                    StatusCode = (int)HttpStatusCode.NotFound,
+                    Headers = new Dictionary<string, string>
+                    {
+                        {"Access-Control-Allow-Origin", "*"}
+                    }
                 };
             }
         }

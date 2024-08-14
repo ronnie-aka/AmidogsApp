@@ -15,11 +15,11 @@ using Newtonsoft.Json;
 
 namespace AmidogsManager.Lambdas
 {
-    public class GetMeetingsByOwnerDogFunction : BaseLambdaFunction
+    public class GetMeetingByIdFunction : BaseLambdaFunction
     {
         [LambdaFunction(Policies = "AWSLambdaBasicExecutionRole, AWSLambdaVPCAccessExecutionRole", MemorySize = 256, Timeout = 30)]
-        [RestApi(LambdaHttpMethod.Get, "/meetingsByOwnerDog/{dogId}")]
-        public APIGatewayProxyResponse GetMeetingsWithOutDog(APIGatewayProxyRequest request, int dogId)
+        [RestApi(LambdaHttpMethod.Get, "/getMeetingById/{meetingId}")]
+        public APIGatewayProxyResponse GetMeetingById(APIGatewayProxyRequest request, int meetingId)
         {
             var amidogsManagerContext = new AmidogsManagerContext();
             var dogMeetingRepository = new DogMeetingRepository(amidogsManagerContext);
@@ -35,9 +35,11 @@ namespace AmidogsManager.Lambdas
                 {
                     {"Content-Type", "application/json"},
                     {"Access-Control-Allow-Origin", "*"},
-                    {"Access-Control-Allow-Credentials", "true"}
+                    {"Access-Control-Allow-Credentials", "true"},
+                    {"Access-Control-Allow-Methods", "GET, OPTIONS"},
+                    {"Access-Control-Allow-Headers", "Content-Type, Authorization"}
                 },
-                    Body = JsonConvert.SerializeObject(meetingServices.GetMeetingsByOwnerDog(dogId))
+                    Body = JsonConvert.SerializeObject(meetingServices.GetMeetingById(meetingId))
                 };
             }
             catch (Exception ex)
@@ -45,7 +47,11 @@ namespace AmidogsManager.Lambdas
                 Console.WriteLine(ex.ToString());
                 return new APIGatewayProxyResponse
                 {
-                    StatusCode = (int)HttpStatusCode.NotFound
+                    StatusCode = (int)HttpStatusCode.NotFound,
+                    Headers = new Dictionary<string, string>
+                    {
+                        {"Access-Control-Allow-Origin", "*"}
+                    }
                 };
             }
         }
