@@ -6,7 +6,7 @@
       </ion-button>
     </ion-buttons>
     <ion-title>{{ dog?.DogName || 'Perfil del Perro' }}</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" *ngIf="isUserDog">
       <ion-button (click)="toggleEditable()">
         {{ isEditable ? 'Guardar' : 'Editar' }}
       </ion-button>
@@ -18,7 +18,7 @@
   <ion-grid *ngIf="dog; else loading">
     <ion-row>
       <ion-col size="12" class="image-container">
-        <img [src]="'../../../../assets/images/' + dog.Photo + '.svg'" class="image" />
+        <img [src]="'../../../../assets/dogsImages/' + dog.Photo + '.svg'" class="image" />
       </ion-col>
     </ion-row>
 
@@ -27,40 +27,79 @@
         <h3>Características</h3>
         <div class="card">
           <p>
-            <strong>- Género: </strong>
-            <span *ngIf="!isEditable">{{dog.Sex}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.Sex" class="editable-input"/>
+            <strong>- Sexo: </strong>
+            <span *ngIf="!isEditable">{{ getSexText(dog.Sex) }}</span>
+            <ion-item *ngIf="isEditable">
+              <ion-select [(ngModel)]="dog.Sex">
+                <ion-select-option [value]="true">Masculino</ion-select-option>
+                <ion-select-option [value]="false">Femenino</ion-select-option>
+              </ion-select>
+            </ion-item>
           </p>
           <p>
             <strong>- Esterilizado: </strong>
-            <span *ngIf="!isEditable">{{dog.Sterilized}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.Sterilized" class="editable-input"/>
+            <span *ngIf="!isEditable">{{ getSterilizedText(dog.Sterilized) }}</span>
+            <ion-item *ngIf="isEditable">
+              <ion-select [(ngModel)]="dog.Sterilized">
+                <ion-select-option [value]="true">Sí</ion-select-option>
+                <ion-select-option [value]="false">No</ion-select-option>
+              </ion-select>
+            </ion-item>
           </p>
           <p>
             <strong>- Dominante: </strong>
-            <span *ngIf="!isEditable">{{dog.Dominant}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.Dominant" class="editable-input"/>
+            <span *ngIf="!isEditable">{{ getDominantText(dog.Dominant) }}</span>
+            <ion-item *ngIf="isEditable">
+              <ion-select [(ngModel)]="dog.Dominant">
+                <ion-select-option [value]="true">Sí</ion-select-option>
+                <ion-select-option [value]="false">No</ion-select-option>
+              </ion-select>
+            </ion-item>
           </p>
           <p>
             <strong>- Raza: </strong>
-            <span *ngIf="!isEditable">{{dog.Breed}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.Breed" class="editable-input"/>
+            <span *ngIf="!isEditable">{{ getBreedText(dog.Breed) }}</span>
+            <ion-item *ngIf="isEditable">
+              <ion-select [(ngModel)]="dog.Breed">
+                <ion-select-option *ngFor="let breed of breedOptions" [value]="breed.value">
+                  {{ breed.label }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
           </p>
           <p>
             <strong>- Edad: </strong>
-            <span *ngIf="!isEditable">{{dog.AgeCategory}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.AgeCategory" class="editable-input"/>
+            <span *ngIf="!isEditable">{{ getAgeCategoryText(dog.AgeCategory) }}</span>
+            <ion-item *ngIf="isEditable">
+              <ion-select [(ngModel)]="dog.AgeCategory">
+                <ion-select-option *ngFor="let age of ageCategoryOptions" [value]="age.value">
+                  {{ age.label }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
           </p>
           <p>
             <strong>- Personalidad: </strong>
-            <span *ngIf="!isEditable">{{dog.Personaliity}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.Personaliity" class="editable-input" />
+            <span *ngIf="!isEditable">{{ getPersonalityText(dog.Personaliity) }}</span>
+            <ion-item *ngIf="isEditable">
+              <ion-select [(ngModel)]="dog.Personaliity">
+                <ion-select-option *ngFor="let personality of personalityOptions" [value]="personality.value">
+                  {{ personality.label }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
           </p>
           <p>
             <strong>- Tamaño: </strong>
-            <span *ngIf="!isEditable">{{dog.Size}}</span>
-            <input *ngIf="isEditable" [(ngModel)]="dog.Size"  class="editable-input"/>
-          </p>
+            <span *ngIf="!isEditable">{{ getSizeText(dog.Size) }}</span>
+            <ion-item *ngIf="isEditable">
+              <ion-select [(ngModel)]="dog.Size">
+                <ion-select-option *ngFor="let size of sizeOptions" [value]="size.value">
+                  {{ size.label }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+          </p>   
         </div>
       </ion-col>
     </ion-row>

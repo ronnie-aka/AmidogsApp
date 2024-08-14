@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login Screen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-container">
+    <h1 class="title">Amidogs</h1>
+    <ion-item lines="none" class="input-item">
+      <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item lines="none" class="input-item">
+      <ion-input placeholder="Contraseña" type="password"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="danger" class="login-button" shape="round" (click)="login()">
+      Login
+    </ion-button>
+  </div>
+</ion-content>

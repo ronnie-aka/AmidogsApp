@@ -38,8 +38,8 @@ export class DatePickerModalComponent {
   confirmDateTime() {
     const selectedDate = new Date(this.selectedDateTime);
     this.modalController.dismiss({
-      fecha: selectedDate,
-      hora: selectedDate.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
+      date: selectedDate,
     });
   }
+  
 }

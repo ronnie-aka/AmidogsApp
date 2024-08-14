@@ -7,19 +7,21 @@ ion-header {
   }
 }
 
+/* Image Styles */
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
-
-  .image {
-    width: 80%;
-    height: auto;
-    border-radius: 15px;
-  }
 }
 
+.image {
+  width: 80%;
+  height: auto;
+  border-radius: 15px;
+}
+
+/* Section Styles */
 .section {
   margin: 20px 0;
 
@@ -46,6 +48,10 @@ ion-header {
   }
 }
 
+.aaa{
+  color: #f90404;
+}
+/* Loading Styles */
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -65,20 +71,25 @@ ion-header {
   color: #fff;
 }
 
-ion-content {
-  --background: #1e1e1e;
-}
-
-
-//Inputs
-
+/* Editable Input Styles */
 .editable-input {
   background-color: #2f2f2f;
   color: white;
   width: 100%;
-  box-sizing: border-box;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #444;
   border-radius: 5px;
 }
+ion-item{
+  --background: #2c2c2c;
+}
+
+ion-select {
+  --background: #2c2c2c;
+  --color: #fff; /* Asegura que el texto sea blanco */
+  --placeholder-color: #2c2c2c; /* Color del placeholder si lo necesitas */
+  padding: 5px;
+}
+
+

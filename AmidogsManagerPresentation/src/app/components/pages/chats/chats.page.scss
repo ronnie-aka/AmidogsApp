@@ -2,6 +2,10 @@
   display: flex;
   overflow-x: auto;
   padding: 10px;
+  scrollbar-width: none;
+}
+.horizontal::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en WebKit/Blink (como Chrome y Safari) */
 }
 
 app-slider {

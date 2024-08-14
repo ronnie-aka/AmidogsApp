@@ -5,6 +5,8 @@ import * as moment from 'moment';
 import { AlertController, ModalController, ToastController } from '@ionic/angular';
 import { DatePickerModalComponent } from '../../partials/date-picker-modal/date-picker-modal.component';
 import { NavController } from '@ionic/angular';
+import { MeetingService } from 'src/app/services/api/meeting.service';
+import { DogMeetingService } from 'src/app/services/api/dogMeeting.service';
 
 @Component({
   selector: 'app-meeting-detail',
@@ -18,29 +20,20 @@ export class MeetingDetailPage implements OnInit {
   editButton: boolean = false;
   isNewMeeting: boolean = false;
   valid: boolean = true;
-
-  defaultDog = {
-    nombre: "Tom",
-    genero: "Macho",
-    castrado: true,
-    dominante: true,
-    raza: "Mastin Español",
-    rangoEdad: "Joven",
-    personalidad: "Juguetón",
-    tamano: "Grande",
-    foto: "tom",
-    presentacion: "Saludos a todos!! Este es mi perrito Tom, es un perrito muy cariñoso y jugetón. Busca nuevos amigos con los que jugar y divertirse. Tenemos muchos juguetes que podemos compartir en caso de que nos hagamos amigos.",
-    id: "5"
-  };
+  dogs : any[] = [];
+  maxParticipantes : any;
+  mydog = "1"
 
   constructor(
     private dogService: DogService,
+    private meetingService : MeetingService,
     private route: ActivatedRoute,
     private router: Router,
     private modalController: ModalController,
     private navCtrl: NavController,
     private alertController: AlertController,
     private toastController: ToastController,
+    private dogMeetingService: DogMeetingService
   ) {}
 
   ngOnInit(): void {
@@ -48,33 +41,47 @@ export class MeetingDetailPage implements OnInit {
     const isEditableParam = this.route.snapshot.paramMap.get('editable');
     const isNewMeetingParam = this.route.snapshot.paramMap.get('isNewMeeting');
     
-    this.isEditable = isEditableParam === 'true';
-    this.editButton = this.isEditable;
+    this.isEditable = false;
+    this.editButton = isEditableParam === 'true';
     this.isNewMeeting = isNewMeetingParam === 'true';
 
     if (this.isNewMeeting) {
       this.initializeNewMeeting();
+      this.isEditable = true;
     } else if (meetingId !== 'new') {
       this.loadExistingMeeting(meetingId);
+      this.loadDogsInMeeting(meetingId);
     }
   }
 
   initializeNewMeeting() {
     this.meeting = {
-      fecha: new Date().getTime(),
-      hora: new Date().getTime(),
-      perros: [this.defaultDog],
-      descripcion: '',
-      titulo: '',
-      ubicacion: '',
-      maxParticipantes: '',
+      id: '',  // ID inicial vacío para una nueva reunión
+      MeetingTitle: '',  // Título de la reunión, inicializado vacío
+      Date: new Date().toISOString(),  // Fecha y hora inicializada a la fecha y hora actuales
+      Location: '',  // Ubicación inicializada vacía
+      Description: '',  // Descripción inicializada vacía
+      maxParticpants: 2,  // Valor predeterminado para el número máximo de participantes (ajustar según sea necesario) // Lista de perros inicializada con el perro por defecto
     };
   }
+  
 
   loadExistingMeeting(meetingId: string) {
-    this.dogService.getMeetingById(meetingId).subscribe({
+    this.meetingService.getMeetingById(meetingId).subscribe({
       next: (data) => {
         this.meeting = data;
+        this.maxParticipantes =  parseInt(this.meeting.MaxParticpants);
+      },
+      error: (error) => {
+        this.error = error;
+      }
+    });
+  }
+
+  loadDogsInMeeting(meetingId: string){
+    this.dogService.getDogsInMeeting(meetingId).subscribe({
+      next: (data) => {
+        this.dogs = data;
       },
       error: (error) => {
         this.error = error;
@@ -86,27 +93,29 @@ export class MeetingDetailPage implements OnInit {
     const modal = await this.modalController.create({
       component: DatePickerModalComponent,
       componentProps: {
-        selectedDate: this.meeting.fecha,
-        selectedTime: this.meeting.hora,
-        mode: 'datetime',
+        selectedDate: this.meeting.Date, // Pasar la fecha actual de la reunión
       },
     });
-
+  
     modal.onWillDismiss().then(({ data }) => {
       if (data) {
-        this.meeting.fecha = data.fecha;
-        this.meeting.hora = data.hora;
+        this.meeting.Date = new Date(data.date);  // Ahora usamos 'data.date'
       }
     });
-
+  
     return await modal.present();
   }
+  
 
-  formatDateTime(date: Date, time: string): string {
-    const formattedDate = moment(date).format('DD/MM/YYYY');
-    const formattedHour = moment(time, 'HH:mm').format('HH:mm');
-    return `${formattedDate} ${formattedHour}`;
+  formatDateTime(dateTime: Date | string): string {
+    if (!dateTime) {
+      return '';
+    }
+  
+    const formattedDateTime = moment(new Date(dateTime)).format('DD/MM/YYYY HH:mm');
+    return formattedDateTime !== "Invalid date" ? formattedDateTime : "Fecha inválida";
   }
+  
 
   onDogClick(dog: any, event: Event): void {
     event.stopPropagation();
@@ -117,26 +126,57 @@ export class MeetingDetailPage implements OnInit {
     if(this.validateMaxParticipants()){
       if (this.isNewMeeting) {
         this.createMeeting();
-      } else {
+      } 
+      else if(this.isEditable){
+        this.updateMeeting();
+        console.log('ha entrado por aquí');
+      }
+      else {
         this.toggleEditMode();
       }
     }
   }
 
   createMeeting() {
-    this.dogService.createMeeting(this.meeting).subscribe({
-      next: (data) => {
-        this.presentToast('Reunión creada exitosamente');
-        this.meeting.id = data.id; // Asignar el ID devuelto por el servidor
-        this.isNewMeeting = false;
-        this.isEditable = false;
+    const newMeeting = {
+      MeetingTitle: this.meeting.MeetingTitle,
+      Date: this.meeting.Date,
+      Location: this.meeting.Location,
+      Description: this.meeting.Description,
+      maxParticpants: this.maxParticipantes,
+      perros: this.meeting.perros
+    };
+  
+    // Primero, crear la reunión
+    this.meetingService.createMeeting(newMeeting).subscribe({
+      next: (createdMeeting) => {
+        // La creación de la reunión fue exitosa, obtenemos el ID de la reunión creada
+        const meetingId = createdMeeting.Id;
+        console.log()
+        
+        // Ahora añadir el perro al meeting
+        this.dogMeetingService.AddDogToMeeting(parseInt(this.mydog), meetingId, true).subscribe({
+          next: () => {
+            this.presentToast('Reunión y perro añadidos exitosamente');
+            this.isNewMeeting = false;
+            this.isEditable = false;
+          },
+          error: (error) => {
+            this.presentToast('Error al añadir el perro al meeting');
+            this.error = error;
+          }
+        });
       },
       error: (error) => {
-        this.error = error;
-      },
+        console.error('Error al crear la reunión:', error);
+        if (error.error) {
+          console.error('Detalles del error:', error.error);
+        }
+        this.presentToast('Error al crear la reunión');
+      }
     });
   }
-
+  
   toggleEditMode() {
     this.isEditable = !this.isEditable;
   }
@@ -154,7 +194,7 @@ export class MeetingDetailPage implements OnInit {
         {
           text: 'Eliminar',
           handler: () => {
-            this.dogService.deleteMeetingById(meetingId).subscribe({
+            this.meetingService.deleteMeeting(meetingId).subscribe({
               next:  () => {
                 this.goBack();
                 this.presentToast('Quedada eliminada exitosamente').then(() => {
@@ -171,6 +211,32 @@ export class MeetingDetailPage implements OnInit {
   
     await alert.present();
   }
+
+  updateMeeting() {
+    // Asegúrate de que el objeto tenga todas las propiedades requeridas por el tipo Meeting
+    const updatedMeeting = {
+      id: this.meeting.id,  // Incluye el ID si es necesario
+      MeetingTitle: this.meeting.MeetingTitle,
+      Date: this.meeting.Date,
+      Location: this.meeting.Location,
+      Description: this.meeting.Description,
+      maxParticpants: this.maxParticipantes,  // Asegúrate de que coincida con el nombre en tu modelo
+    };
+  
+    // Llamar al servicio para actualizar la reunión
+    this.meetingService.updateMeeting(this.meeting.Id, updatedMeeting).subscribe({
+      next: () => {
+        this.presentToast('Cambios guardados exitosamente');
+        this.isEditable = false;  // Salir del modo de edición
+      },
+      error: (error) => {
+        this.presentToast('Error al guardar los cambios');
+        this.error = error;
+      }
+    });
+  }
+  
+  
   
 
   async presentToast(message: string) {
@@ -187,15 +253,20 @@ export class MeetingDetailPage implements OnInit {
   }
 
   validateMaxParticipants(): boolean {
-    const maxParticipantes =  parseInt(this.meeting.maxParticipantes);
-    const numPerros = this.meeting.perros?.length || 0;
+    const numPerros = this.dogs.length || 0;
 
-    if (!Number.isInteger(maxParticipantes) || maxParticipantes < 2 || maxParticipantes > 10) {
+    this.maxParticipantes = Number(this.maxParticipantes);
+    console.log('Tipo de dato de maxParticipantes:', typeof this.maxParticipantes);
+
+    if (!Number.isInteger(this.maxParticipantes) || this.maxParticipantes < 2 || this.maxParticipantes > 10) {
       this.presentToast('El número de participantes debe ser un número entero entre 2 y 10.');
+      console.log('is integer ', !Number.isInteger(this.maxParticipantes));
+      console.log('menor 2 ', this.maxParticipantes < 2);
+      console.log('mayor 10 ', this.maxParticipantes > 10);
       return false;
     }
 
-    if (numPerros > 1 && maxParticipantes < numPerros) {
+    if (numPerros > 1 && this.maxParticipantes < numPerros) {
       this.presentToast(`El número máximo participantes no puede ser menor que el número de perros (${numPerros}).`);
       return false;
     }

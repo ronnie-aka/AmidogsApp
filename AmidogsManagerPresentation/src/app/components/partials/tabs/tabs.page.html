@@ -15,9 +15,15 @@
       <ion-label>Chats</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="profile" href="/tabs/profile">
+    <ion-tab-button (click)="goToDogProfile()">
       <ion-img src="../../../../assets/icon/profile.svg"></ion-img>
       <ion-label>Profile</ion-label>
     </ion-tab-button>
+    
+    <ion-tab-button tab="information" href="/tabs/information">
+      <ion-img src="../../../../assets/icon/dogipedia.svg"></ion-img>
+      <ion-label>Dogipedia</ion-label>
+    </ion-tab-button>
+
   </ion-tab-bar>
 </ion-tabs>

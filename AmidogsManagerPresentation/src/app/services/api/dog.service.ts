@@ -1,51 +1,40 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
+import { GlobalDogService } from '../utils/globalDog.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DogService {
-  private apiUrl = 'https://665f5ae81e9017dc16f3e2de.mockapi.io/amidogs';
+  private apiUrl =
+    'https://982bb0teq7.execute-api.eu-west-3.amazonaws.com/Prod';
 
-  private newApiUrl = 'https://982bb0teq7.execute-api.eu-west-3.amazonaws.com/Prod/';
+  constructor(private http: HttpClient, private globalDogService: GlobalDogService) {}
 
-  constructor(private http: HttpClient) {}
-
-  //MockUp apis
-  getDogs(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/dogsNoMatch`);
+  getDogsNoMatched(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/getUnmatchedDogs/${id}`);
+  }
+  getDogById(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/getDog/${id}`);
   }
 
-  //getDogById(id: string): Observable<any> {
-    //return this.http.get(`${this.apiUrl}/dogsNoMatch/${id}`);
-  //}
-
-  getMeetings(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/meetings`);
+  getDogByUserId(userId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/dog/${userId}`).pipe(
+      tap(dog => {
+        if (dog) {
+          this.globalDogService.setDog(dog);  // Guarda el perro en el estado global
+        }
+      })
+    );
+  }
+  getDogsInMeeting(meetingId: string): Observable<any> {
+    return this.http.get(
+      `${this.apiUrl}/meeting/${meetingId}/getDogsInMeeting`
+    );
   }
 
-  getMeetingById(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/meetings/${id}`);
-  }
-
-  createMeeting(meeting: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/meetings`, meeting);
-  }
-
-  deleteMeetingById(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/meetings/${id}`);
-  }
-
-  //new APIS
-
-  getDogsNoMatched(id: string) : Observable<any> {
-    return this.http.get(`${this.newApiUrl}/getUnmatchedDogs/${id}`);
-  }
-  getDogById(id: string) : Observable<any> {
-    return this.http.get(`${this.newApiUrl}/getDog/${id}`);
-  }
-  getDogByUserId(id: string) : Observable<any> {
-    return this.http.get(`${this.newApiUrl}/dog/${id}`);
+  updateDog(dogId: string, updatedDog: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/UpdateDog/${dogId}`, updatedDog);
   }
 }

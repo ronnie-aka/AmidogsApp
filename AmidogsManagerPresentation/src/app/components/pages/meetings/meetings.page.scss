@@ -68,3 +68,22 @@
   .tarjetas{
     padding: 5px;
   }
+
+  .button-slider {
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    white-space: nowrap; /* Evita que los botones se envuelvan a la siguiente línea */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .button-slider::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en WebKit/Blink (como Chrome y Safari) */
+  }
+  .button-wrapper {
+    display: inline-flex; /* Muestra los botones en línea horizontalmente */
+    flex-direction: row; /* Dirección horizontal de los botones */
+  }
+  
+  ion-button {
+    margin-right: 8px; /* Espacio entre los botones, ajusta según sea necesario */
+  }
+  

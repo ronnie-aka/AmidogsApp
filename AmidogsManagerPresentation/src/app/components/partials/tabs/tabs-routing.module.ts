@@ -4,7 +4,7 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
@@ -20,8 +20,8 @@ const routes: Routes = [
         loadChildren: () => import('../../pages/chats/chats.module').then(m => m.chatsPageModule)
       },
       {
-        path: 'profile',
-        loadChildren: () => import('../../pages/profile/profile.module').then(m => m.ProfilePageModule)
+        path: 'information',
+        loadChildren: () => import('../../pages/information/information.module').then(m => m.InformationPageModule)
       },
       {
         path: 'dog-profile/:id',
@@ -37,16 +37,12 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/home',
+        redirectTo: 'home',
         pathMatch: 'full'
       }
+      
     ]
   },
-  {
-    path: '',
-    redirectTo: '/tabs/home',
-    pathMatch: 'full'
-  }
 ];
 
 @NgModule({

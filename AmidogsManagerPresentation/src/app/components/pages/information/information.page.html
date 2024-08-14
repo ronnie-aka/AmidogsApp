@@ -1,0 +1,610 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Menú de Información</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <!-- Sección: Lenguaje Canino -->
+    <ion-item
+      button
+      (click)="toggleSection('canino')"
+      style="text-align: center"
+    >
+      Lenguaje canino
+      <img
+        *ngIf="activeSection != 'canino'"
+        src="../../../../assets/images/socializacion.png"
+        alt="Descripción de la imagen"
+        width="100"
+        height="100"
+        slot="end"
+      />
+    </ion-item>
+
+    <div *ngIf="activeSection === 'canino'" class="content">
+      <ion-item
+        button
+        (click)="toggleSubSection('corporal')"
+        class="subsection-item"
+      >
+        -> Lenguaje corporal canino
+      </ion-item>
+      <div *ngIf="activeSubSection === 'corporal'">
+        <h2>Lenguaje corporal canino:</h2>
+        <p>
+          El lenguaje corporal canino es una forma crucial para entender las
+          emociones y necesidades de los perros. Al observarlo puedes
+          interpretar sus sentimientos, intenciones y estado de ánimo.
+        </p>
+        <p>
+          A continuación, te mostramos las señales más comunes y lo que
+          significan:
+        </p>
+        <ul>
+          <li>
+            <strong>Relajado:</strong> El perro está acostado de lado, con la
+            cola relajada y las orejas en su posición natural. Su postura es
+            completamente tranquila, sin tensión, indicando que se siente seguro
+            y cómodo.
+          </li>
+          <li>
+            <strong>Tranquilo y neutro:</strong> El perro está de pie con una
+            postura erguida y relajada. La cola está en una posición natural,
+            moviéndose suavemente o en reposo. Las orejas están erguidas pero
+            relajadas, y su mirada es tranquila.
+          </li>
+          <li>
+            <strong>Ansioso y nervioso:</strong> El perro tiene una postura
+            encorvada, con el cuerpo bajo y la cola entre las patas. Sus orejas
+            están hacia atrás, y los ojos están muy abiertos, mostrando una
+            expresión de preocupación o miedo.
+          </li>
+          <li>
+            <strong>Juguetón:</strong> El perro está en una postura de
+            invitación al juego, con las patas delanteras bajas y el trasero
+            levantado. La cola está en alto, moviéndose rápidamente de un lado a
+            otro.
+          </li>
+          <li>
+            <strong>Alerta:</strong> El perro tiene una postura erguida, con la
+            cabeza levantada y la cola elevada. Las orejas están completamente
+            erguidas, atentas a algún sonido o movimiento.
+          </li>
+          <li>
+            <strong>Asustado:</strong> El perro está encogido, con el cuerpo
+            bajo y la cola escondida entre las patas. Sus orejas están
+            completamente hacia atrás, y los ojos muy abiertos, mostrando la
+            zona blanca.
+          </li>
+          <li>
+            <strong>Emocionado:</strong> El perro está de pie con la cola alta y
+            moviéndose rápidamente. Las orejas están erguidas y orientadas hacia
+            adelante, mostrando interés y emoción.
+          </li>
+          <li>
+            <strong>Dominante:</strong> El perro está de pie con una postura
+            firme y la cola alta. Su cuerpo está tenso, y las orejas están
+            erguidas, indicando confianza y control.
+          </li>
+          <li>
+            <strong>Sumiso:</strong> El perro está acostado de espaldas,
+            mostrando su vientre en una postura de sumisión total. La cola está
+            completamente relajada, y las orejas están hacia atrás.
+          </li>
+          <li>
+            <strong>Agresivo:</strong> El perro está de pie con una postura
+            rígida, mostrando una actitud de desafío. La cola está levantada o
+            estirada hacia atrás, completamente tensa.
+          </li>
+        </ul>
+        <img
+          src="../../../../assets/images/lenguajeCorporal.jpg"
+          alt="Descripción de la imagen"
+          width="400"
+          height="400"
+          style="padding-top: 5px; padding-bottom: 5px"
+        />
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('jugando')"
+        class="subsection-item"
+      >
+        -> ¿Los perros están jugando o peleando?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'jugando'">
+        <h2>¿Los perros están jugando o peleando?</h2>
+        <ul>
+          <li>
+            <strong>Postura de invitación al juego ("playbow"):</strong> El
+            perro se inclina hacia adelante con el pecho y las patas delanteras
+            en el suelo, mientras las patas traseras permanecen elevadas.
+          </li>
+          <img
+            src="../../../../assets/images/playbow.jpg"
+            alt="Descripción de la imagen"
+            width="250"
+            height="200"
+            style="padding-top: 5px; padding-bottom: 5px"
+          />
+          <li>
+            <strong>Comportamiento durante el juego:</strong> Los perros se
+            acercan de forma lateral y con cuerpos relajados. La cola estará
+            levantada y en movimiento activo durante el juego.
+          </li>
+          <li>
+            <strong>Interacciones físicas:</strong> Mordiscos suaves y fugaces,
+            junto con gruñidos y ladridos agudos, son señales de juego. En
+            contraste, mordiscos bruscos y persistentes indican agresión.
+          </li>
+          <li>
+            <strong>Persecuciones y roles:</strong> En un juego, los perros
+            pueden alterarse durante la persecución, y su forma de pedir un
+            descanso suele ser tumbandose boca arriba, mostrando la barriga.
+          </li>
+          <li>
+            <strong>Choques y caídas:</strong> En el juego, los perros caen
+            suavemente y rápidamente se levantan para seguir jugando.
+          </li>
+          <li>
+            <strong>Mandíbulas y boca:</strong> Durante el juego, las mandíbulas
+            están relajadas, con la lengua fuera y los dientes apenas visibles.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sección: Socialización -->
+    <ion-item
+      button
+      (click)="toggleSection('socializacion')"
+      style="text-align: center"
+    >
+      Socialización
+      <img
+        *ngIf="activeSection != 'socializacion'"
+        src="../../../../assets/images/perrosJugando.png"
+        alt="Descripción de la imagen"
+        width="100"
+        height="100"
+        slot="end"
+      />
+    </ion-item>
+
+    <div *ngIf="activeSection === 'socializacion'" class="content">
+      <ion-item
+        button
+        (click)="toggleSubSection('socializacion_timid')"
+        class="subsection-item"
+      >
+        -> ¿Cómo puedo socializar a mi perro si es tímido o temeroso con otros
+        perros?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'socializacion_timid'">
+        <h2>
+          ¿Cómo puedo socializar a mi perro si es tímido o temeroso con otros
+          perros?
+        </h2>
+        <ul>
+          <li>
+            <strong>Desensibilización:</strong> Exponer al perro gradualmente a
+            otros perros, comenzando desde una distancia segura e ir acortándola
+            a medida que el perro se sienta más cómodo.
+          </li>
+          <li>
+            <strong>Familiarización:</strong> Lleva al perro a pasear en áreas
+            donde pueda encontrarse con otros perros, permitiéndole adaptarse a
+            su presencia sin sentirse amenazado.
+          </li>
+          <li>
+            <strong>Contra-acondicionamiento:</strong> Asocia la presencia de
+            otros perros con experiencias positivas, como jugar con él cuando
+            otros perros están cerca.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('socializacion_agresivo')"
+        class="subsection-item"
+      >
+        -> ¿Qué hago si mi perro es agresivo con otros perros?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'socializacion_agresivo'">
+        <h2>¿Qué hago si mi perro es agresivo con otros perros?</h2>
+        <ul>
+          <li>
+            <strong>Agresividad en perros adultos:</strong> Acude a un etólogo,
+            educador canino o adiestrador con experiencia para técnicas de
+            modificación de conducta.
+          </li>
+          <li>
+            <strong>Agresividad en cachorros:</strong> Fomenta la socialización
+            desde cachorro y corrige las primeras señales de agresividad
+            mediante refuerzo positivo.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('introduccion_perros')"
+        class="subsection-item"
+      >
+        -> ¿Cómo introduzco a mi perro a otros perros de manera segura?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'introduccion_perros'">
+        <h2>¿Cómo introduzco a mi perro a otros perros de manera segura?</h2>
+        <ul>
+          <li>
+            <strong>Regla de los tres segundos:</strong> Permitir que los perros
+            se huelan brevemente durante tres segundos antes de separarlos.
+          </li>
+          <li>
+            <strong>Atención:</strong> Evitar distracciones y estar atento a las
+            señales corporales de los perros.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sección: Agresividad -->
+    <ion-item
+      button
+      (click)="toggleSection('peleas')"
+      style="text-align: center"
+    >
+      Agresividad
+      <img
+        *ngIf="activeSection != 'peleas'"
+        src="../../../../assets/images/pelea.png"
+        alt="Descripción de la imagen"
+        width="100"
+        height="100"
+        slot="end"
+      />
+    </ion-item>
+
+    <div *ngIf="activeSection === 'peleas'" class="content">
+      <ion-item
+        button
+        (click)="toggleSubSection('detener_pelea')"
+        class="subsection-item"
+      >
+        -> ¿Cómo detener una pelea entre perros?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'detener_pelea'">
+        <h2>¿Cómo detener una pelea entre perros?</h2>
+        <ul>
+          <li>
+            <strong>Usar una barrera:</strong> Coloca un objeto entre los perros
+            para separarlos sin contacto físico directo.
+          </li>
+          <li>
+            <strong>Distraer a los perros:</strong> Haz ruido fuerte o usa un
+            rociador de agua para interrumpir la pelea.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('prevencion_agresividad')"
+        class="subsection-item"
+      >
+        -> ¿Cómo prevenir la agresividad en mi perro?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'prevencion_agresividad'">
+        <h2>¿Cómo prevenir la agresividad en mi perro?</h2>
+        <ul>
+          <li>
+            <strong>Socialización temprana:</strong> Expone a tu perro a
+            diversas situaciones y otros perros desde cachorro.
+          </li>
+          <li>
+            <strong>Ejercicio:</strong> Mantén a tu perro físicamente activo y
+            mentalmente estimulado para reducir el estrés y la agresividad.
+          </li>
+          <li>
+            <strong>Evitar situaciones de estrés:</strong> Conoce los
+            desencadenantes de tu perro y evita situaciones que lo hagan sentir
+            amenazado.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('tipos_agresividad')"
+        class="subsection-item"
+      >
+        -> Tipos de agresividad canina y cómo manejarlos
+      </ion-item>
+      <div *ngIf="activeSubSection === 'tipos_agresividad'">
+        <h2>Tipos de agresividad canina y cómo manejarlos</h2>
+        <ul>
+          <li>
+            <strong>Agresividad por miedo:</strong> Ocurre cuando el perro se
+            siente amenazado o acorralado. La clave es desensibilizar y
+            contra-acondicionar al perro a los estímulos que le causan miedo.
+          </li>
+          <li>
+            <strong>Agresividad territorial:</strong> Se manifiesta cuando el
+            perro defiende su espacio. Trabaja en la socialización y en
+            enseñarle que las visitas y otros perros no son una amenaza.
+          </li>
+          <li>
+            <strong>Agresividad redirigida:</strong> A veces, un perro frustrado
+            o sobreestimulado redirige su agresión a la persona o perro más
+            cercano. En este caso, es importante identificar y controlar la
+            causa subyacente del estrés o la frustración.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('signos_agresividad')"
+        class="subsection-item"
+      >
+        -> Signos de advertencia antes de una agresión
+      </ion-item>
+      <div *ngIf="activeSubSection === 'signos_agresividad'">
+        <h2>Signos de advertencia antes de una agresión</h2>
+        <ul>
+          <li>
+            <strong>Rigidez corporal:</strong> El perro se tensa, se queda
+            inmóvil y fija la mirada en el objeto de su agresión.
+          </li>
+          <li>
+            <strong>Gruñidos:</strong> Los gruñidos profundos y constantes son
+            un claro indicio de que el perro puede morder si no se detiene la
+            situación.
+          </li>
+          <li>
+            <strong>Pelos erizados:</strong> El pelaje del lomo se eriza, lo
+            cual es una señal de alarma y preparación para una posible pelea.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sección: Salud -->
+    <ion-item
+      button
+      (click)="toggleSection('salud')"
+      style="text-align: center"
+    >
+      Salud
+      <img
+        *ngIf="activeSection != 'salud'"
+        src="../../../../assets/images/salud.svg"
+        alt="Descripción de la imagen"
+        width="100"
+        height="100"
+        slot="end"
+      />
+    </ion-item>
+
+    <div *ngIf="activeSection === 'salud'" class="content">
+      <ion-item
+        button
+        (click)="toggleSubSection('veterinario')"
+        class="subsection-item"
+      >
+        -> ¿Cuándo debo llevar a mi perro al veterinario?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'veterinario'">
+        <h2>¿Cuándo debo llevar a mi perro al veterinario?</h2>
+        <ul>
+          <li>
+            <strong>Vacunas y chequeos:</strong> Lleva a tu perro al veterinario
+            para vacunas anuales y chequeos generales.
+          </li>
+          <li>
+            <strong>Signos de enfermedad:</strong> Si tu perro muestra cambios
+            en su apetito, comportamiento o tiene síntomas como vómitos,
+            diarrea, o letargo, debe ser visto por un veterinario.
+          </li>
+          <li>
+            <strong>Emergencias:</strong> En casos de accidentes, dificultades
+            para respirar, o envenenamiento, lleva a tu perro inmediatamente al
+            veterinario.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('dieta')"
+        class="subsection-item"
+      >
+        -> ¿Qué dieta es la mejor para mi perro?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'dieta'">
+        <h2>¿Qué dieta es la mejor para mi perro?</h2>
+        <ul>
+          <li>
+            <strong>Comida balanceada:</strong> Opta por una dieta comercial de
+            alta calidad que cumpla con los requisitos nutricionales de tu perro
+            según su edad, raza y nivel de actividad.
+          </li>
+          <li>
+            <strong>Dietas especiales:</strong> Algunos perros pueden necesitar
+            dietas específicas debido a alergias, condiciones de salud, o
+            problemas digestivos.
+          </li>
+          <li>
+            <strong>Alimentos prohibidos:</strong> Evita darle alimentos como
+            chocolate, cebolla, uvas y productos con xilitol, ya que son tóxicos
+            para los perros.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('ejercicio')"
+        class="subsection-item"
+      >
+        -> ¿Cuánto ejercicio necesita mi perro?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'ejercicio'">
+        <h2>¿Cuánto ejercicio necesita mi perro?</h2>
+        <ul>
+          <li>
+            <strong>Raza y tamaño:</strong> Las necesidades de ejercicio varían
+            según la raza y el tamaño del perro. Perros grandes o de trabajo
+            generalmente requieren más ejercicio que perros pequeños o de
+            compañía.
+          </li>
+          <li>
+            <strong>Frecuencia:</strong> Lo ideal es ejercitar a tu perro al
+            menos 30 minutos a 1 hora al día, aunque algunas razas necesitan
+            más.
+          </li>
+          <li>
+            <strong>Variedad:</strong> Alterna entre caminatas, juegos de buscar
+            la pelota, y actividades mentales para mantener a tu perro en forma
+            física y mental.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('cosas_no_comer')"
+        class="subsection-item"
+      >
+        -> ¿Qué cosas no debe comer mi perro?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'cosas_no_comer'">
+        <h2>¿Qué cosas no debe comer mi perro?</h2>
+        <ul>
+          <li>
+            <strong>Alimentos tóxicos:</strong> El chocolate, las uvas, pasas,
+            cebolla, ajo, y aguacate son extremadamente peligrosos para los
+            perros.
+          </li>
+          <li>
+            <strong>Restos de comida:</strong> Evita darle huesos cocidos, ya
+            que pueden astillarse y causar daño interno. También evita alimentos
+            grasos o con especias.
+          </li>
+          <li>
+            <strong>Productos de xilitol:</strong> El xilitol, un edulcorante
+            común en productos sin azúcar, es tóxico para los perros y puede
+            causar hipoglucemia.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sección: Otras Preguntas -->
+    <ion-item
+      button
+      (click)="toggleSection('otras')"
+      style="text-align: center"
+    >
+      Otras Preguntas
+      <img
+        *ngIf="activeSection != 'otras'"
+        src="../../../../assets/images/interrogantes.png"
+        alt="Descripción de la imagen"
+        width="100"
+        height="80"
+        slot="end"
+      />
+    </ion-item>
+
+    <div *ngIf="activeSection === 'otras'" class="content">
+      <ion-item
+        button
+        (click)="toggleSubSection('duchar_perro')"
+        class="subsection-item"
+      >
+        -> ¿Cada cuánto debo duchar a mi perro?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'duchar_perro'">
+        <h2>¿Cada cuánto debo duchar a mi perro?</h2>
+        <ul>
+          <li>
+            <strong>Frecuencia recomendada:</strong> En general, es recomendable
+            bañar a tu perro cada 4-6 semanas. Sin embargo, esto puede variar
+            según la raza, tipo de pelaje y estilo de vida.
+          </li>
+          <li>
+            <strong>Señales para un baño:</strong> Si tu perro huele mal, su
+            pelaje está sucio o tiene alergias, un baño puede ser necesario más
+            frecuentemente.
+          </li>
+          <li>
+            <strong>Productos adecuados:</strong> Usa siempre un champú
+            específico para perros, ya que su piel tiene un pH diferente al de
+            los humanos.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('seguro_perro')"
+        class="subsection-item"
+      >
+        -> ¿Qué tipo de seguro necesito para mi perro?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'seguro_perro'">
+        <h2>¿Qué tipo de seguro necesito para mi perro?</h2>
+        <ul>
+          <li>
+            <strong>Seguro de responsabilidad civil:</strong> Este seguro cubre
+            daños que tu perro pueda causar a otras personas, animales o
+            propiedades.
+          </li>
+          <li>
+            <strong>Seguro de salud para mascotas:</strong> Cubre gastos
+            veterinarios, desde chequeos hasta cirugías. Algunos planes incluyen
+            cobertura por enfermedad crónica o accidentes.
+          </li>
+          <li>
+            <strong>Seguro de viaje:</strong> Si viajas con frecuencia, este
+            seguro cubre emergencias médicas de tu perro mientras estás fuera.
+          </li>
+        </ul>
+      </div>
+
+      <ion-item
+        button
+        (click)="toggleSubSection('ejercicio_diario')"
+        class="subsection-item"
+      >
+        -> ¿Cuánto ejercicio necesita mi perro al día?
+      </ion-item>
+      <div *ngIf="activeSubSection === 'ejercicio_diario'">
+        <h2>¿Cuánto ejercicio necesita mi perro al día?</h2>
+        <ul>
+          <li>
+            <strong>Raza y tamaño:</strong> Perros de trabajo o razas activas
+            como el Border Collie necesitan al menos 1-2 horas de ejercicio
+            intenso diario. Razas más pequeñas o menos activas pueden necesitar
+            menos tiempo.
+          </li>
+          <li>
+            <strong>Edad:</strong> Los cachorros y perros jóvenes tienen más
+            energía y requieren más ejercicio, mientras que los perros mayores
+            pueden necesitar menos, adaptado a su salud.
+          </li>
+          <li>
+            <strong>Variación:</strong> Combina paseos, juegos y entrenamiento
+            para proporcionar un ejercicio equilibrado que estimule tanto física
+            como mentalmente a tu perro.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
+import { GlobalDogService } from 'src/app/services/utils/globalDog.service';
 
 @Component({
   selector: 'app-match',
@@ -15,10 +16,22 @@ import { ModalController } from '@ionic/angular';
 export class MatchComponent  implements OnInit {
 
   @Input() dog: any;
+  myDogId : any;
+  myDogPhoto : any;
 
-  constructor(private modalController: ModalController,private router: Router) { }
+  constructor(private modalController: ModalController,private router: Router, private globalDogService : GlobalDogService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.globalDogService.dog$.subscribe(dog => {
+      if (dog) {
+        this.myDogId = dog.Id.toString();
+        this.myDogPhoto = dog.Photo
+        
+      } else {
+        console.log('No hay perro en el estado global.');
+      }
+    });
+  }
 
   async closeModal() {
     await this.modalController.dismiss();
