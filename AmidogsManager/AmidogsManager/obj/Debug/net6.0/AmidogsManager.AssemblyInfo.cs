@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AmidogsManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21773910bd70b76572f44deaf2ba8529572fdc6f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88bcd4a16fc4dc1489ab802bf45b7ee7ba1e5ab6")]
 [assembly: System.Reflection.AssemblyProductAttribute("AmidogsManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AmidogsManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

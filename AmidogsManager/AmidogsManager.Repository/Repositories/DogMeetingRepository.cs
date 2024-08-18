@@ -27,13 +27,10 @@ namespace AmidogsManager.Repository.Repositories
 
         public List<DogMeeting> GetDogMeetingsWithOut(int dogId)
         {
-            // Primero, obtén todos los MeetingIds donde el perro con dogId está involucrado
             var meetingIdsWithDog = amidogsManagerContext.DogsMeetings
                 .Where(d => d.DogId == dogId)
                 .Select(d => d.MeetingId)
                 .ToList();
-
-            // Luego, obtén todas las quedadas que no tienen esos MeetingIds
             var result = amidogsManagerContext.DogsMeetings
                 .Where(d => !meetingIdsWithDog.Contains(d.MeetingId))
                 .ToList();
