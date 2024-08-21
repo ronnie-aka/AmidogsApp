@@ -1,4 +1,5 @@
 ﻿using AmidogsManager.Database.Models;
+using AmidogsManager.Repository.Interfaces;
 using AmidogsManager.Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ namespace AmidogsManager.BusinessLogic.Services
 {
     public class UserService
     {
-        private readonly UserRepository userRepository;
+        private readonly IUserRepository userRepository;
 
-        public UserService(UserRepository userRepository)
+        public UserService(IUserRepository userRepository)
         {
             this.userRepository = userRepository;
         }

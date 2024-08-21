@@ -1,19 +1,39 @@
 const express = require('express');
-const http = require('http');
+const https = require('https');
+const fs = require('fs');
 const socketIo = require('socket.io');
-const cors = require('cors'); 
+const cors = require('cors');
 
 const app = express();
-const server = http.createServer(app);
+
+// Cargar certificados SSL
+const options = {
+  key: fs.readFileSync('C:/Users/Ronnie/Downloads/server.key'), // Ruta al archivo .key
+  cert: fs.readFileSync('C:/Users/Ronnie/Downloads/server.crt') // Ruta al archivo .crt
+};
+
+const server = https.createServer(options, app);
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:8100", 
+    origin: "*", // Cambia esto por el origen de tu cliente
     methods: ["GET", "POST"]
   }
 });
 
-app.use(cors()); 
+app.use(cors());
 app.use(express.json());
+
+app.use((err, req, res, next) => {
+  console.error('Error occurred:', err);
+  res.status(500).send('Something went wrong');
+});
+
+
+// Ruta básica para verificar que el servidor responde
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
 
 app.post('/send-message', (req, res) => {
   const { message, roomId } = req.body;
@@ -41,6 +61,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log('Listening on port 3000');
+server.listen(8443, () => {
+  console.log('Servidor HTTPS en funcionamiento en el puerto 8443');
 });

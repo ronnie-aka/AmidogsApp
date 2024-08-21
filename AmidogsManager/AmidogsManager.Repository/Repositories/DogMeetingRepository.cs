@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using AmidogsManager.Repository.Interfaces;
 
 namespace AmidogsManager.Repository.Repositories
 {
-    public class DogMeetingRepository
+    public class DogMeetingRepository :IDogMeetingRepository
     {
         private readonly AmidogsManagerContext amidogsManagerContext;
         public DogMeetingRepository(AmidogsManagerContext amidogsManagerContext)

@@ -1,4 +1,5 @@
 ﻿using AmidogsManager.Database.Models;
+using AmidogsManager.Repository.Interfaces;
 using AmidogsManager.Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ namespace AmidogsManager.BusinessLogic.Services
 {
     public class MeetingService
     {
-        private readonly MeetingRepository meetingRepository;
-        private readonly DogMeetingRepository dogMeetingRepository;
+        private readonly IMeetingRepository meetingRepository;
+        private readonly IDogMeetingRepository dogMeetingRepository;
 
-        public MeetingService(DogMeetingRepository dogMeetingRepository, MeetingRepository meetingRepository)
+        public MeetingService(IDogMeetingRepository dogMeetingRepository, IMeetingRepository meetingRepository)
         {
             this.dogMeetingRepository = dogMeetingRepository;
             this.meetingRepository = meetingRepository;

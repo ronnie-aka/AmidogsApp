@@ -5,11 +5,13 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmidogsManager", "AmidogsManager\AmidogsManager.csproj", "{81F607AE-553D-4352-87AB-D4091D3902FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmidogsManager.BusinessLogic", "AmidogsManager.BusinessLogic\AmidogsManager.BusinessLogic.csproj", "{6DA53446-6B43-4B74-99A5-5C98B8D239B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmidogsManager.BusinessLogic", "AmidogsManager.BusinessLogic\AmidogsManager.BusinessLogic.csproj", "{6DA53446-6B43-4B74-99A5-5C98B8D239B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmidogsManager.Repository", "AmidogsManager.Repository\AmidogsManager.Repository.csproj", "{61D73794-6885-472D-88E8-2C90F342D71E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmidogsManager.Repository", "AmidogsManager.Repository\AmidogsManager.Repository.csproj", "{61D73794-6885-472D-88E8-2C90F342D71E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmidogsManager.Database", "AmidogsManager.Database\AmidogsManager.Database.csproj", "{559EE81D-BDA9-4565-B4C1-A96AF8307C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmidogsManager.Tests", "AmidogsManager.Tests\AmidogsManager.Tests.csproj", "{9199DF38-12E7-4EAE-93B4-29A569682233}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{559EE81D-BDA9-4565-B4C1-A96AF8307C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{559EE81D-BDA9-4565-B4C1-A96AF8307C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{559EE81D-BDA9-4565-B4C1-A96AF8307C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9199DF38-12E7-4EAE-93B4-29A569682233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9199DF38-12E7-4EAE-93B4-29A569682233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9199DF38-12E7-4EAE-93B4-29A569682233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9199DF38-12E7-4EAE-93B4-29A569682233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

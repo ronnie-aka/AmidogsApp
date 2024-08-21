@@ -19,9 +19,12 @@ ion-item {
 }
 
 ion-label {
+  padding: 15px;
+  padding-bottom: 20px;
   display: inline-block;
   max-width: 80%; /* Limitar el ancho máximo del mensaje */
   margin: 5px 0;
+  text-align: justify;
   word-wrap: break-word;
   white-space: pre-wrap; /* Permitir que el texto se divida en varias líneas */
   overflow-wrap: break-word; /* Forzar el ajuste de palabras largas */
@@ -30,14 +33,12 @@ ion-label {
 
 .message-sent {
   margin-left: auto;
-  text-align: right;
-  align-self: flex-end;
+  text-align: end;
 }
 
 .message-received {
   margin-right: auto;
-  text-align: left;
-  align-self: flex-start;
+  text-align: start;
 }
 
 .message-input {
@@ -61,4 +62,3 @@ ion-img.delete-icon {
   width: 32px; /* Define el ancho deseado */
   height: 32px; /* Define el alto deseado */
 }
-

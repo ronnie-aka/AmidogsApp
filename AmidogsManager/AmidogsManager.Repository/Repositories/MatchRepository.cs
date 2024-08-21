@@ -1,5 +1,6 @@
 ﻿using AmidogsManager.Database;
 using AmidogsManager.Database.Models;
+using AmidogsManager.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using Match = AmidogsManager.Database.Models.Match;
 
 namespace AmidogsManager.Repository.Repositories
 {
-    public class MatchRepository
+    public class MatchRepository : IMatchRepository
     {
         private readonly AmidogsManagerContext amidogsManagerContext;
 

@@ -1,5 +1,6 @@
 ﻿using AmidogsManager.Database;
 using AmidogsManager.Database.Models;
+using AmidogsManager.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AmidogsManager.Repository.Repositories
 {
-    public class DogRepository
+    public class DogRepository : IDogRepository
     {
         private readonly AmidogsManagerContext amidogsManagerContext;
         public DogRepository(AmidogsManagerContext amidogsManagerContext)

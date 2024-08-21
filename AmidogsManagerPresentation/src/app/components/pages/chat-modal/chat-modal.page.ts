@@ -16,7 +16,7 @@ import { AlertController } from '@ionic/angular';
   templateUrl: './chat-modal.page.html',
   styleUrls: ['./chat-modal.page.scss'],
 })
-export class ChatModalPage implements OnInit, OnDestroy {
+export class ChatModalPage implements OnInit {
   @ViewChild('messageInput', { static: false }) messageInput?: ElementRef;
 
   dogId: string = ''
@@ -25,11 +25,10 @@ export class ChatModalPage implements OnInit, OnDestroy {
 
   messages: { text: string; user: boolean }[] = [];
   newMessage: string = '';
+  messageIndex: number = 0; 
 
   constructor(
     private route: ActivatedRoute,
-    private socketService: SocketService,
-    private navCtrl: NavController,
     private matchService: MatchService,
     private router: Router,
     private alertController: AlertController,
@@ -41,22 +40,50 @@ export class ChatModalPage implements OnInit, OnDestroy {
     this.dogName = this.route.snapshot.paramMap.get('dogName') ?? '';
     this.dogPhoto = this.route.snapshot.paramMap.get('dogPhoto') ?? '';
 
-    this.socketService.joinRoom(this.dogId!);
-
-    this.socketService.onMessage((message) => {
-      if (message.roomId === this.dogId) {
-        this.messages.push({ text: message.text, user: message.user });
-      }
-    });
+    // Cargar mensajes desde el almacenamiento local
+    const storedMessages = localStorage.getItem(this.dogId);
+    if (storedMessages) {
+      this.messages = JSON.parse(storedMessages);
+      this.messageIndex = this.messages.length;
+    }
   }
 
   sendMessage() {
     if (this.newMessage.trim()) {
-      this.socketService.sendMessage(this.newMessage, this.dogId!);
-      this.newMessage = '';
-      this.scrollToBottom();
+        // Si no hay mensajes previos, el primer mensaje se muestra a la derecha
+        const isUser = this.messageIndex === 0 || this.messageIndex % 2 === 0;
+        
+        // Añadir el mensaje al array con la propiedad user: true o false
+        this.messages.push({ text: this.newMessage, user: isUser });
+        
+        // Incrementar el índice
+        this.messageIndex++;
+        
+        // Guardar los mensajes en el almacenamiento local
+        localStorage.setItem(this.dogId, JSON.stringify(this.messages));
+
+        const matchUpdate = {
+          dogId: this.dogId,
+          chat: 'hola'
+        };
+  
+        this.matchService.createOrUpdateMatch(matchUpdate).subscribe({
+          next: (response) => {
+            console.log('Match updated successfully:', response);
+          },
+          error: (error) => {
+            console.error('Error updating match:', error);
+          }
+        });
+        
+        // Limpiar el campo de entrada
+        this.newMessage = '';
+        
+        // Desplazarse hacia abajo para mostrar el último mensaje
+        this.scrollToBottom();
     }
-  }
+}
+
 
   handleKeyPress() {
     this.sendMessage();
@@ -66,10 +93,6 @@ export class ChatModalPage implements OnInit, OnDestroy {
     setTimeout(() => {
       this.messageInput?.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }, 100);
-  }
-
-  ngOnDestroy() {
-    this.socketService.leaveRoom(this.dogId!);
   }
 
   isUserMessage(index: number): boolean {

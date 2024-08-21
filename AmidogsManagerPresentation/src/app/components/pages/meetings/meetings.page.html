@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>amidogs</ion-title>
+    <ion-title>Meetings</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -39,7 +39,7 @@
           <ion-card-title>{{ meeting.MeetingTitle }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Fecha: {{ meeting.Date | date: 'shortDate' }}</p>
+          <p>Fecha: {{ meeting.Date | date: 'dd/MM/yyyy' }}</p>
           <p>Hora: {{ meeting.Date | date: 'shortTime' }}</p>
           <p>Sitio: {{ meeting.Location }}</p>
           <p>Descripción: {{ meeting.Description }}</p>
@@ -76,7 +76,7 @@
           <ion-card-title>{{ meeting.MeetingTitle }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Fecha: {{ meeting.Date | date: 'shortDate' }}</p>
+          <p>Fecha: {{ meeting.Date | date: 'dd/MM/yyyy' }}</p>
           <p>Hora: {{ meeting.Date | date: 'shortTime' }}</p>
           <p>Sitio: {{ meeting.Location }}</p>
           <p>Descripción: {{ meeting.Description }}</p>
@@ -113,7 +113,7 @@
           <ion-card-title>{{ meeting.MeetingTitle }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>Fecha: {{ meeting.Date | date: 'shortDate' }}</p>
+          <p>Fecha: {{ meeting.Date | date: 'dd/MM/yyyy' }}</p>
           <p>Hora: {{ meeting.Date | date: 'shortTime' }}</p>
           <p>Sitio: {{ meeting.Location }}</p>
           <p>Descripción: {{ meeting.Description }}</p>

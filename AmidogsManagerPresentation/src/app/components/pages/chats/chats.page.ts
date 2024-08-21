@@ -20,7 +20,6 @@ export class chatsPage {
   hasInitialized: boolean = false; // Variable de control
 
   constructor(
-    private socketService: SocketService,
     private dogService: DogService,
     private matchService: MatchService,
     private router: Router,
@@ -29,18 +28,6 @@ export class chatsPage {
 
   ngOnInit(): void {
     this.ObtenerPerro();
-
-    // Configura el WebSocket para recibir mensajes
-    this.socketService.onMessage((message) => {
-      if (!this.messages[message.roomId]) {
-        this.messages[message.roomId] = [];
-      }
-      this.messages[message.roomId].push({ text: message.text, user: false });
-      localStorage.setItem(
-        message.roomId,
-        JSON.stringify(this.messages[message.roomId])
-      );
-    });
   }
 
   ObtenerPerro(): void {
@@ -128,10 +115,12 @@ export class chatsPage {
   }
 
   getLastMessageText(dogId: string): string {
-    const messages = this.messages[dogId];
-    if (messages && messages.length > 0) {
+    const storedMessages = localStorage.getItem(dogId);
+    const messages = storedMessages ? JSON.parse(storedMessages) : [];
+
+    if (messages.length > 0) {
       return messages[messages.length - 1].text;
     }
-    return '';
+    return 'No hay mensajes aún';
   }
 }

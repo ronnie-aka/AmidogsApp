@@ -1,4 +1,5 @@
 ﻿using AmidogsManager.Database.Models;
+using AmidogsManager.Repository.Interfaces;
 using AmidogsManager.Repository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ namespace AmidogsManager.BusinessLogic.Services
 {
     public class MatchService
     {
-        private readonly MatchRepository matchRepository;
+        private readonly IMatchRepository matchRepository;
 
-        public MatchService(MatchRepository matchRepository)
+        public MatchService(IMatchRepository matchRepository)
         {
             this.matchRepository = matchRepository;
         }

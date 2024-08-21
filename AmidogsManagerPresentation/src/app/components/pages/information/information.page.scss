@@ -11,6 +11,10 @@ ion-item {
   flex-direction: column; /* Arrange items in a column */
 }
 
+ion-title{
+  text-align: center;
+}
+
 ion-item img {
   margin-top: 10px;
   margin-left: 20px;/* Space between the text and image */
@@ -55,6 +59,8 @@ ion-list {
 /* Agregar padding entre los párrafos */
 .content p {
   padding-bottom: 4px; /* Espacio debajo de cada párrafo */
+  text-align: justify;
+  margin-right: 15px;
 }
 
 /* Agregar padding entre los elementos de la lista */
@@ -64,11 +70,15 @@ ion-list {
 
 /* Opcional: Si deseas un margen entre los elementos de lista */
 .content ul {
-  margin-bottom: 4px; /* Espacio debajo de la lista */
+  margin-bottom: 5px; /* Espacio debajo de la lista */
 }
 
 .content li {
-  margin-bottom: 4px; /* Espacio debajo de cada elemento de la lista */
+  margin-bottom: 20px; /* Espacio debajo de cada elemento de la lista */
+  text-align: justify;
+  margin-right: 15px;
 }
+
+
 
 

@@ -65,3 +65,7 @@ C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\obj\Debug\net6.0\A
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\obj\Debug\net6.0\ref\AmidogsManager.dll
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\obj\Debug\net6.0\AmidogsManager.sourcelink.json
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\bin\Debug\net6.0\xunit.abstractions.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\bin\Debug\net6.0\xunit.assert.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\bin\Debug\net6.0\xunit.core.dll
+C:\Users\Ronnie\Desktop\TFG\App\AmidogsManager\AmidogsManager\bin\Debug\net6.0\xunit.execution.dotnet.dll

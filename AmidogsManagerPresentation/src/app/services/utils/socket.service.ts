@@ -9,8 +9,8 @@ export class SocketService {
   private socket: Socket;
 
   constructor() {
-    this.socket = io('http://localhost:3000', {
-      transports: ['websocket', 'polling']
+    this.socket = io('https://192.168.106.162:8443', {
+      transports: ['websocket']
     });
   }
 

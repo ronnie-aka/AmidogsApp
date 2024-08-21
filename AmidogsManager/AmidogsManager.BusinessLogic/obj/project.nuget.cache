@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hMOG1Bv2ijVivBv5qKYMcdC8+b/QBZnlIYTjl/eTADjBjin4PU/AaCyCQGJOL3nhd4V2UIR+8H5fwlFgoK67WA==",
+  "dgSpecHash": "z89+e0PrYPPklWSqLYVE5d753g0BncYtg761EOctSBX1seoYuJsT5+a/Z4h/Df44pZ50Ltna8qtTO608pPF1PQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.BusinessLogic\\AmidogsManager.BusinessLogic.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,13 @@
     "C:\\Users\\Ronnie\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Ronnie\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\Ronnie\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\xunit\\2.9.0\\xunit.2.9.0.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\xunit.analyzers\\1.15.0\\xunit.analyzers.1.15.0.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\xunit.assert\\2.9.0\\xunit.assert.2.9.0.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\xunit.core\\2.9.0\\xunit.core.2.9.0.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\xunit.extensibility.core\\2.9.0\\xunit.extensibility.core.2.9.0.nupkg.sha512",
+    "C:\\Users\\Ronnie\\.nuget\\packages\\xunit.extensibility.execution\\2.9.0\\xunit.extensibility.execution.2.9.0.nupkg.sha512",
     "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
     "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
     "C:\\Users\\Ronnie\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512"

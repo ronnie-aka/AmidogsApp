@@ -1,5 +1,6 @@
 ﻿using AmidogsManager.Database;
 using AmidogsManager.Database.Models;
+using AmidogsManager.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AmidogsManager.Repository.Repositories
 {
-    public class MeetingRepository
+    public class MeetingRepository : IMeetingRepository
     {
         private readonly AmidogsManagerContext amidogsManagerContext;
 

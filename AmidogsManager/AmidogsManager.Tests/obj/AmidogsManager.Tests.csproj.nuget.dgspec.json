@@ -1,0 +1,501 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Tests\\AmidogsManager.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.BusinessLogic\\AmidogsManager.BusinessLogic.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.BusinessLogic\\AmidogsManager.BusinessLogic.csproj",
+        "projectName": "AmidogsManager.BusinessLogic",
+        "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.BusinessLogic\\AmidogsManager.BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\Ronnie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.BusinessLogic\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ronnie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj"
+              },
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\AmidogsManager.Repository.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\AmidogsManager.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj",
+        "projectName": "AmidogsManager.Database",
+        "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj",
+        "packagesPath": "C:\\Users\\Ronnie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ronnie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Amazon.Lambda.APIGatewayEvents": {
+              "target": "Package",
+              "version": "[2.7.0, )"
+            },
+            "Amazon.Lambda.Annotations": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Amazon.Lambda.Core": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Amazon.Lambda.Serialization.SystemTextJson": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\AmidogsManager.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\AmidogsManager.Repository.csproj",
+        "projectName": "AmidogsManager.Repository",
+        "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\AmidogsManager.Repository.csproj",
+        "packagesPath": "C:\\Users\\Ronnie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ronnie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Tests\\AmidogsManager.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Tests\\AmidogsManager.Tests.csproj",
+        "projectName": "AmidogsManager.Tests",
+        "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Tests\\AmidogsManager.Tests.csproj",
+        "packagesPath": "C:\\Users\\Ronnie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ronnie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.BusinessLogic\\AmidogsManager.BusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.BusinessLogic\\AmidogsManager.BusinessLogic.csproj"
+              },
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj"
+              },
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\AmidogsManager.Repository.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\AmidogsManager.Repository.csproj"
+              },
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager\\AmidogsManager.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager\\AmidogsManager.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager\\AmidogsManager.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager\\AmidogsManager.csproj",
+        "projectName": "AmidogsManager",
+        "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager\\AmidogsManager.csproj",
+        "packagesPath": "C:\\Users\\Ronnie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ronnie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.BusinessLogic\\AmidogsManager.BusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.BusinessLogic\\AmidogsManager.BusinessLogic.csproj"
+              },
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Database\\AmidogsManager.Database.csproj"
+              },
+              "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\AmidogsManager.Repository.csproj": {
+                "projectPath": "C:\\Users\\Ronnie\\Desktop\\TFG\\App\\AmidogsManager\\AmidogsManager.Repository\\AmidogsManager.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Amazon.Lambda.APIGatewayEvents": {
+              "target": "Package",
+              "version": "[2.7.0, )"
+            },
+            "Amazon.Lambda.Annotations": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Amazon.Lambda.Core": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Amazon.Lambda.Serialization.SystemTextJson": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
